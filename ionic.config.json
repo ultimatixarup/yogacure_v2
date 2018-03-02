@@ -1,0 +1,8 @@
+{
+  "name": "yogacure",
+  "app_id": "0f03274f",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
