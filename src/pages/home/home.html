@@ -6,13 +6,62 @@
     <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
+<ion-content>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+        <ion-refresher
+            pulling-text="Pull to refresh..."
+            on-refresh="reload()">
+        </ion-refresher>
+    
+            
+            <div style="height:100%;background: url('http://d1dcu4sbskithe.cloudfront.net/img/frontpage.jpg');background-repeat:round">
+                
+                
+                <div style="top:5%;margin-left:25%">
+                    
+                    <a href="#" (click)="goToAilements('15')"> <img style="height:100px;width:100px;border:solid" src="http://d1dcu4sbskithe.cloudfront.net/media/15min.jpg" border="5"></a>
+                    <a href="#" (click)="goToAilements('60')"><img style="height:100px;width:100px;border:solid" src="http://d1dcu4sbskithe.cloudfront.net/media/1hr.jpg" border="5"></a>
+                    <a href="#" (click)="goToAilements('meditation')"> <img style="height:100px;width:100px;border:solid;margin-left:20%" src="http://d1dcu4sbskithe.cloudfront.net/media/meditation.jpg" border="5"></a>
+                   
+                    
+                    
+                </div>
+                
+                
+      
+            
+        </div>
+        
+        
+ 
+    <!-- <img src="http://bsswest.org/yogamedia/yoga-poster.jpg" height="100%" width="100%"> -->
+    <!-- <div style="height:100%;width:100%">
+     <video class="video" webkit-playsinline poster="http://bsswest.org/yogamedia/yoga-poster.jpg"><source src="http://bsswest.org/yogamedia/c8z43_blVQA.mp4"/></video>
+     
+     </div> -->
+    </ion-content>
+   
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
-</ion-content>
+<style>
+    .btn {
+        background: #3498db;
+        background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+        background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+        background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+        background-image: -o-linear-gradient(top, #3498db, #2980b9);
+        background-image: linear-gradient(to bottom, #3498db, #2980b9);
+        -webkit-border-radius: 28;
+        -moz-border-radius: 28;
+        border-radius: 28px;
+        font-family: Arial;
+        color: #ffffff;
+        font-size: 20px;
+        background: #3498db;
+        padding: 10px 20px 10px 20px;
+        text-decoration: none;
+    }
+
+
+
+    </style>

@@ -4,7 +4,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
+
+//import { QuickFixPage } from '../pages/quickfix/quickfix';
+import { YogaPage } from '../pages/yoga/yoga';
+import { MediaPage } from '../pages/media/media';
+import { PolicyPage } from '../pages/policy/policy';
+
 import { ListPage } from '../pages/list/list';
+import { Http } from '@angular/http';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,7 +23,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public http: Http ) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -33,6 +40,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.initializeCache();
     });
   }
 
@@ -41,4 +49,33 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+  
+  initializeCache(){
+  
+          
+            this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/getvalues?type=disease').subscribe(resp => {
+                                                                                                                 
+   // alert(JSON.stringify(resp._body));                                                                                                           window.localStorage.setItem("DISEASES",resp._body);
+                                                                                                                 });
+            this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/GetYogas').subscribe( resp => {
+                                                                                                  // alert(JSON.stringify(resp));
+                                                                                                   window.localStorage.setItem("YOGAS",resp._body);
+                                                                                                   });
+            
 }
+            // cache the list of diseases
+reload(){
+            //alert("reload");
+    this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/getvalues?type=disease').subscribe(resp => {
+        window.localStorage.setItem("DISEASES",resp._body);
+        });
+        this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/GetYogas').subscribe(resp => {                                       window.localStorage.setItem("YOGAS",resp._body);
+        });
+    
+        
+    }
+  
+  
+  
+  }
+
