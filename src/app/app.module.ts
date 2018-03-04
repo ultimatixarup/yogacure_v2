@@ -11,11 +11,14 @@ import { QuickFixPage } from '../pages/quickfix/quickfix';
 import { YogaPage } from '../pages/yoga/yoga';
 import { MediaPage } from '../pages/media/media';
 import { PolicyPage } from '../pages/policy/policy';
+import { FavoritesPage } from '../pages/favorites/favorites';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { StreamingMedia } from '@ionic-native/streaming-media';
+
+
 
 
 @NgModule({
@@ -26,7 +29,7 @@ import { StreamingMedia } from '@ionic-native/streaming-media';
     YogaPage,
     MediaPage,
     PolicyPage,
-    
+    FavoritesPage,
     ListPage
   ],
   imports: [
@@ -45,6 +48,7 @@ import { StreamingMedia } from '@ionic-native/streaming-media';
     YogaPage,
     MediaPage,
     PolicyPage,
+    FavoritesPage,
     ListPage
   ],
   providers: [

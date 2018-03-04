@@ -3,7 +3,6 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { QuickFixPage } from '../quickfix/quickfix';
 import { HomePage } from '../home/home';
-import { CommonNavComponent } from '../common.component';
 
 @Component({
   selector: 'page-yoga',

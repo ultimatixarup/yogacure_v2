@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { StreamingMedia } from '@ionic-native/streaming-media';
 import { HomePage } from '../home/home';
+import { FavoritesPage } from '../favorites/favorites';
 
 @Component({
   selector: 'page-media',
@@ -130,7 +131,60 @@ export class MediaPage {
             
    goToHome(){
     this.navCtrl.push(HomePage,{});
-  }         
+  }  
+  
+  goToFavs(){
+    this.navCtrl.push(FavoritesPage,{});
+  }  
+  
+     addToFav(){
+            //alert("addfav");
+            //console.log("fav label="+$scope.favLabel);
+            if(this.favLabel == "Remove from Favorite"){
+            
+            this.favLabel = "Add to Favorite"
+            
+            } else {
+            this.favLabel = "Remove from Favorite";
+            }
+            
+            
+            var elements = window.localStorage.getItem("FAVS");
+            var removed = false;
+            
+            if(elements === null || elements.length == 0){
+            elements = [];
+            elements.push(this.selectedYoga);
+            window.localStorage.setItem("FAVS",JSON.stringify(elements));
+            console.log(elements);
+            } else {
+            
+            //if already exists in faverites list, then remove it
+            var elements1=JSON.parse(elements);
+            for(var i = 0;i<elements1.length; i++){
+            
+            var element = elements1[i];
+            if(element.name == this.selectedYoga.name){
+            elements1.splice(i,1);
+            window.localStorage.setItem("FAVS",JSON.stringify(elements1));
+            removed = true;
+            break;
+            }
+            }
+            
+            if(!removed){
+            elements1.push(this.selectedYoga);
+            
+            window.localStorage.setItem("FAVS",JSON.stringify(elements1));
+            }
+            
+            }
+            }
+  
+  
+  
+  
+  
             
 }
             
