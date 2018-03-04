@@ -17,5 +17,12 @@ export class HomePage {
       type: param
     });
   }
+  
+  goToHome(param):void{
+    //alert("in here");
+     this.navCtrl.push(HomePage, {
+      type: param
+    });
+  }
 
 }

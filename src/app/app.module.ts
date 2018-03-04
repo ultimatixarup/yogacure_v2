@@ -26,12 +26,13 @@ import { StreamingMedia } from '@ionic-native/streaming-media';
     YogaPage,
     MediaPage,
     PolicyPage,
-    //StreamingMedia,
+    
     ListPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    
     //StreamingMedia,
     IonicModule.forRoot(MyApp),
   ],

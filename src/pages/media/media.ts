@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { StreamingMedia } from '@ionic-native/streaming-media';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-media',
@@ -127,7 +128,9 @@ export class MediaPage {
             }
     }
             
-            
+   goToHome(){
+    this.navCtrl.push(HomePage,{});
+  }         
             
 }
             

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { MediaPage } from '../media/media';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-quickfix',
@@ -44,5 +45,9 @@ export class QuickFixPage {
     this.navCtrl.push(MediaPage, {
       yogadata: item
     });
+  }
+  
+  goToHome(){
+    this.navCtrl.push(HomePage,{});
   }
 }
