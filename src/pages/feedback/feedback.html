@@ -1,23 +1,40 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>List</ion-title>
-  </ion-navbar>
+     <ion-buttons end>
+         <button ion-button icon-only (click)="closeModal()">
+            <ion-icon name="close"></ion-icon>
+          </button>
+    </ion-buttons>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+
+      <form (ngSubmit)="submitFeedback()">
+      <ion-item>
+        <ion-label>Your Name</ion-label>
+        <ion-input type="text" [(ngModel)]="feedbackName" name="name"></ion-input>
+      </ion-item>
+     <ion-item>
+        <ion-label>Your Email</ion-label>
+        <ion-input type="text" [(ngModel)]="feedbackEmail" name="email"></ion-input>
+      </ion-item>
+          
+     
+      <ion-item>
+        <ion-label>Feedback</ion-label>
+        <ion-textarea [(ngModel)]="feedbackMsg" name="feedback"></ion-textarea>
+      </ion-item>
+      <button ion-button type="submit" block>Submit Feedback</button>
+    </form>
+      
+   
+      <b>
+        
+            &nbsp;&nbsp;Your Previous Feedbacks
+      </b>
+      <ion-item></ion-item><ion-list><ion-item *ngFor="let item of items">{{item.message}}</ion-item></ion-list> 
+ 
+    
+    
+    
+    
 </ion-content>

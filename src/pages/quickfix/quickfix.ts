@@ -13,10 +13,12 @@ export class QuickFixPage {
   icons: string[];
   items: Array<{name: any,label:any, description: any, data: any, image: any, type: any,easyvid:any,icon:any}>;
   header: string;
+  selectedDisease:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
     var type = navParams.get('item').name;
+    this.selectedDisease = navParams.get('item');
     
     this.header = type;
     //console.log(type);
@@ -45,7 +47,8 @@ export class QuickFixPage {
     // That's right, we're pushing to ourselves!
     //alert("calling media");
     this.navCtrl.push(MediaPage, {
-      yogadata: item
+      yogadata: item,
+      selectedDisease: this.selectedDisease
     });
   }
   

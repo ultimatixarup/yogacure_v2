@@ -111,6 +111,7 @@ export class YogaPage {
     // That's right, we're pushing to ourselves!
     this.navCtrl.push(QuickFixPage, {
       item: item
+      
     });
   }
   

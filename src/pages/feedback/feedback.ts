@@ -1,37 +1,58 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavParams } from 'ionic-angular';
+import { ViewController } from 'ionic-angular';
+
+import { Http } from '@angular/http';
+
 
 @Component({
   selector: 'page-list',
   templateUrl: 'feedback.html'
 })
-export class ListPage {
-  selectedItem: any;
-  icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
-
-    // Let's populate this page with some filler content for funzies
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
-
-    this.items = [];
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+export class FeedbackPage {
+  feedbackName:string;
+  feedbackEmail:string;
+  feedbackMsg:string;
+  items:any;
+  selectedDisease:any;
+  
+  constructor(public navParams: NavParams,public viewCtrl: ViewController, public http: Http) {
+  
+  this.selectedYoga = navParams.get('data');
+  this.selectedDisease = navParams.get('selectedDisease');
+  this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/getFeedbackByContext').subscribe(resp => {
+                                                                                                                 
+         this.items = resp['_body'].Items;
+         alert(items);
+         
+   });
+   
+            if(window.localStorage.getItem("USER")!=null){
+                this.feedbackName = window.localStorage.getItem("USER");
+            }
+            
+            if(window.localStorage.getItem("EMAIL")!=null){
+                this.feedbackEmail = window.localStorage.getItem("EMAIL");
+            }
+            //alert("here");
+            
+  
   }
 
-  itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
-    this.navCtrl.push(ListPage, {
-      item: item
-    });
+  closeModal() {
+    this.viewCtrl.dismiss();
   }
+  
+  submitFeedback(){
+            window.localStorage.setItem("USER",this.feedbackName);
+            window.localStorage.setItem("EMAIL",this.feedbackEmail);
+            
+            var data={
+                identifier:this.feedbackName+"#"+this.feedbackEmail+"#"+this.selectedDisease+"#"+this.selectedYoga.name,message:this.feedbackMsg
+            };
+            this.http.post('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/feedbackFunction', JSON.stringify(data));
+            
+        this.viewCtrl.dismiss();
+  }
+  
 }

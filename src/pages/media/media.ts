@@ -3,6 +3,9 @@ import { NavController, NavParams } from 'ionic-angular';
 import { StreamingMedia } from '@ionic-native/streaming-media';
 import { HomePage } from '../home/home';
 import { FavoritesPage } from '../favorites/favorites';
+import { ModalController, NavParams } from 'ionic-angular';
+import { FeedbackPage } from '../feedback/feedback';
+
 
 @Component({
   selector: 'page-media',
@@ -19,12 +22,14 @@ export class MediaPage {
   url:any;
   options:any;
   easyVid:any;
+  selectedDisease:any;
   
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public streamingMedia: StreamingMedia) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public streamingMedia: StreamingMedia, public modalCtrl: ModalController) {
     // If we navigated to this page, we will have an item available as a nav param
     //alert("starting media");
     this.selectedYoga = navParams.get('yogadata');
+    this.selectedDisease = navParams.get('selectedDisease');
     this.header = this.selectedYoga.name;
     //alert(JSON.stringify(this.selectedYoga));
     
@@ -182,7 +187,10 @@ export class MediaPage {
             }
   
   
-  
+  openModal() {
+    let myModal = this.modalCtrl.create(FeedbackPage,{data : this.selectedYoga,selectedDisease: this.selectedDisease});
+    myModal.present();
+  }
   
   
             
