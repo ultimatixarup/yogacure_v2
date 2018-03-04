@@ -49,9 +49,8 @@ export class QuickFixPage {
     });
   }
   
-  goToHome(param):void{
-    //alert("in here");
-     this.navCtrl.setRoot(HomePage);
+  goToHome(){
+    this.navCtrl.push(HomePage,{});
   }
   
   goToFavs(){

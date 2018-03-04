@@ -139,8 +139,7 @@ export class MediaPage {
   }  
   
      addToFav(){
-            //alert("addfav");
-            //console.log("fav label="+$scope.favLabel);
+           
             if(this.favLabel == "Remove from Favorite"){
             
             this.favLabel = "Add to Favorite"
@@ -150,18 +149,18 @@ export class MediaPage {
             }
             
             
-            var elements = window.localStorage.getItem("FAVS");
+            var favs = window.localStorage.getItem("FAVS");
             var removed = false;
             
-            if(elements === null || elements.length == 0){
-            var elements = [];
-            elements.push(this.selectedYoga);
-            window.localStorage.setItem("FAVS",JSON.stringify(elements));
-            console.log(elements);
+            if(favs === null || favs.length == 0){
+            
+            //elements.push(this.selectedYoga);
+            window.localStorage.setItem("FAVS",JSON.stringify(this.selectedYoga));
+            //console.log(elements);
             } else {
             
             //if already exists in faverites list, then remove it
-            var elements1=JSON.parse(elements);
+            var elements1=JSON.parse(window.localStorage.getItem("FAVS"));
             for(var i = 0;i<elements1.length; i++){
             
             var element = elements1[i];
