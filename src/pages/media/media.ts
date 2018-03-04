@@ -16,6 +16,7 @@ export class MediaPage {
   easyMode: any;
   url:any;
   options:any;
+  easyVid:any;
   
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public streamingMedia: StreamingMedia) {
@@ -64,14 +65,12 @@ export class MediaPage {
                 this.favLabel = "Add to Favorite";
             }
             
-          /*  if(easyvid.length > 0){
-            document.getElementById("switch").style.display = 'block';
-            document.getElementById("switch_b").style.display = 'none';
+            if(easyvid.length > 0){
+             this.easyVid = true;
             } else {
-            document.getElementById("switch").style.display = 'none';
-            document.getElementById("switch_b").style.display = 'block';
-            
-            }*/
+                this.easyVid = false;
+            }
+            //alert(this.easyVid);
 
    
   }
@@ -91,7 +90,7 @@ export class MediaPage {
             
             
    playVid(){
-            alert("playvid");
+            //alert("playvid");
             //alert(url);
             
             var options = {
