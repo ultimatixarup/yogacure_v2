@@ -15,19 +15,13 @@ export class FeedbackPage {
   feedbackMsg:string;
   items:any;
   selectedDisease:any;
+  selectedYoga:any;
   
   constructor(public navParams: NavParams,public viewCtrl: ViewController, public http: Http) {
-  
+  alert("inside");
   this.selectedYoga = navParams.get('data');
   this.selectedDisease = navParams.get('selectedDisease');
-  this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/getFeedbackByContext').subscribe(resp => {
-                                                                                                                 
-         this.items = resp['_body'].Items;
-         alert(items);
-         
-   });
-   
-            if(window.localStorage.getItem("USER")!=null){
+   if(window.localStorage.getItem("USER")!=null){
                 this.feedbackName = window.localStorage.getItem("USER");
             }
             
@@ -36,6 +30,22 @@ export class FeedbackPage {
             }
             //alert("here");
             
+  
+   var data={
+            identifier:this.feedbackName+"#"+this.feedbackEmail+"#"+this.selectedDisease.name+"#"+this.selectedYoga.name
+            
+            };
+            
+            console.log("data===="+JSON.stringify(data));
+  
+  this.http.post('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/getFeedbackByContext',data).subscribe(resp => {
+              alert(resp);                                                                                                   
+         this.items = resp['_body'].Items;
+         alert(items);
+         
+   });
+   
+           
   
   }
 
@@ -48,7 +58,7 @@ export class FeedbackPage {
             window.localStorage.setItem("EMAIL",this.feedbackEmail);
             
             var data={
-                identifier:this.feedbackName+"#"+this.feedbackEmail+"#"+this.selectedDisease+"#"+this.selectedYoga.name,message:this.feedbackMsg
+                identifier:this.feedbackName+"#"+this.feedbackEmail+"#"+this.selectedDisease.name+"#"+this.selectedYoga.name,message:this.feedbackMsg
             };
             this.http.post('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/feedbackFunction', JSON.stringify(data));
             
