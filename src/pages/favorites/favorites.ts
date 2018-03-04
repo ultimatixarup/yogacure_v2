@@ -14,7 +14,7 @@ export class FavoritesPage {
   header: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    
+     this.header = "Favorites";
      var elements = window.localStorage.getItem("FAVS");
            
      this.items = JSON.parse(elements);
@@ -28,7 +28,8 @@ export class FavoritesPage {
     });
   }
   
-  goToHome(){
-    this.navCtrl.push(HomePage,{});
+  goToHome(param):void{
+    //alert("in here");
+     this.navCtrl.setRoot(HomePage);
   }
 }

@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { QuickFixPage } from '../quickfix/quickfix';
 import { HomePage } from '../home/home';
+import { FavoritesPage } from '../favorites/favorites';
 
 @Component({
   selector: 'page-yoga',
@@ -113,9 +114,14 @@ export class YogaPage {
     });
   }
   
-  goToHome(){
-    this.navCtrl.push(HomePage,{});
+  goToHome(param):void{
+    //alert("in here");
+     this.navCtrl.setRoot(HomePage);
   }
+  
+  goToFavs(){
+    this.navCtrl.push(FavoritesPage,{});
+  }  
   
   
 }

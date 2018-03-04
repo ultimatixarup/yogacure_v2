@@ -129,9 +129,10 @@ export class MediaPage {
             }
     }
             
-   goToHome(){
-    this.navCtrl.push(HomePage,{});
-  }  
+   goToHome(param):void{
+    //alert("in here");
+     this.navCtrl.setRoot(HomePage);
+  }
   
   goToFavs(){
     this.navCtrl.push(FavoritesPage,{});
@@ -153,7 +154,7 @@ export class MediaPage {
             var removed = false;
             
             if(elements === null || elements.length == 0){
-            elements = [];
+            var elements = [];
             elements.push(this.selectedYoga);
             window.localStorage.setItem("FAVS",JSON.stringify(elements));
             console.log(elements);

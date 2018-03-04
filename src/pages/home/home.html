@@ -40,15 +40,18 @@
      
      </div> -->
     </ion-content>
-   
-  <ion-footer>
-  <ion-navbar>
+<ion-footer>
+   <ion-navbar>
     <button ion-button>
-      <ion-icon (click)="goTo('HomePage')" name="home"></ion-icon>
+      <ion-icon (click)="goToHome()" name="home"></ion-icon>
+      
+    </button>
+    <button ion-button>
+      <ion-icon (click)="goToFavs()" name="heart"> Favorites</ion-icon>  
     </button>
     
   </ion-navbar>
-</ion-footer>
+</ion-footer>    
 <style>
     .btn {
         background: #3498db;

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { YogaPage } from '../yoga/yoga';
+import { FavoritesPage } from '../favorites/favorites';
 
 @Component({
   selector: 'page-home',
@@ -20,9 +21,11 @@ export class HomePage {
   
   goToHome(param):void{
     //alert("in here");
-     this.navCtrl.push(HomePage, {
-      type: param
-    });
+     this.navCtrl.setRoot(HomePage);
   }
+  
+  goToFavs(){
+    this.navCtrl.push(FavoritesPage,{});
+  }  
 
 }

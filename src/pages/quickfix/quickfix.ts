@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { MediaPage } from '../media/media';
 import { HomePage } from '../home/home';
+import { FavoritesPage } from '../favorites/favorites';
 
 @Component({
   selector: 'page-quickfix',
@@ -16,6 +17,7 @@ export class QuickFixPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
     var type = navParams.get('item').name;
+    
     this.header = type;
     //console.log(type);
     
@@ -47,7 +49,12 @@ export class QuickFixPage {
     });
   }
   
-  goToHome(){
-    this.navCtrl.push(HomePage,{});
+  goToHome(param):void{
+    //alert("in here");
+     this.navCtrl.setRoot(HomePage);
   }
+  
+  goToFavs(){
+    this.navCtrl.push(FavoritesPage,{});
+  }  
 }
