@@ -12,6 +12,7 @@ export class HomePage {
 
   }
   goToAilements(param):void{
+    //alert("in here");
      this.navCtrl.push(YogaPage, {
       type: param
     });

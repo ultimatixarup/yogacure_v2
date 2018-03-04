@@ -15,6 +15,9 @@ import { PolicyPage } from '../pages/policy/policy';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { StreamingMedia } from '@ionic-native/streaming-media';
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -23,11 +26,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     YogaPage,
     MediaPage,
     PolicyPage,
+    //StreamingMedia,
     ListPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    //StreamingMedia,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -44,6 +49,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    StreamingMedia,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

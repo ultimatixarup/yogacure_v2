@@ -3,21 +3,53 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>{{ header }}</ion-title>
   </ion-navbar>
 </ion-header>
-
-<ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
-</ion-content>
+    
+        <ion-content>
+            
+          <div id="switch">
+              <ion-item>
+           <ion-label> Supported Mode</ion-label>
+           <ion-toggle ng-model="easyMode" ng-click="changeVid()"></ion-toggle>
+                  </ion-item>
+          </div>
+          <div id="switch_b" style="height:55px" >
+              
+          </div>
+          <div id="videoArea" style="height:50%;width:100%;">
+              <a (click)="playVid()">
+                  <img src="http://d1dcu4sbskithe.cloudfront.net/{{ imgSrc }}" style="height:100%;width:100%" onerror="this.src='http://d1dcu4sbskithe.cloudfront.net/media/default.png';" />
+                  
+                  <!--<div class="item item-text-wrap" ng-style="style"> -->
+                  <div style="top:35%;left:1%;position:absolute"><img style="height:50px;width:50px;opacity: 0.9" src="http://d1dcu4sbskithe.cloudfront.net/icons/playicon.PNG"></div></a>
+          </div>
+          
+          <div style="margin-left:4px;margin-top:4px;">
+                <button ion-button (click)="addToFav()">{{ favLabel }}</button>
+                <button ion-button (click)="addToFav()">Provide Feedback</button>
+              
+              
+          </div>
+          
+          <div style="margin-left:4px;margin-right:4px;overflow-y:scroll">
+            
+            <b>Simple practice rules:</b>
+            <ul>
+            <li>Keep Yourself hydrated</li>
+            <li>Yoga practices should not be done after meals. 4 hours after big meal and 2 hours after snack.</li>
+            <li>Put a smile on your face</li>
+            <li>For most Asanas keep your eyes closed, there are exceptions we will point those out</li>
+            <li>Focus on the area having pain or discomfort</li>
+            <li>Focus on your breath especially the breath and pranic flow based postures</li>
+            <li>Be aware of your current moment; don’t let your mind fly</li>
+            <li>Along with asanas, focus on healthy diet</li>
+            <li>As need always consult your physician before, during and after your Yoga practices</li>
+            </ul>
+            
+            </div>
+          
+        </ion-content>
+        
+        

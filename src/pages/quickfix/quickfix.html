@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Ailement</ion-title>
+    <ion-title>Asanas for {{ header }}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -18,13 +18,13 @@
                 
               </ion-item>
 
-              <img src="img/advance-card-bttf.png">
+              <img src="http://d1dcu4sbskithe.cloudfront.net/{{ item.image }}" onerror="this.src='http://d1dcu4sbskithe.cloudfront.net/media/default.png';" />
 
               <ion-card-content>
                 <p>{{ item.description }}</p>
               </ion-card-content>
 
-              <ion-row>
+             <!-- <ion-row>
                 <ion-col>
                   <button ion-button icon-left clear small>
                     <ion-icon name="thumbs-up"></ion-icon>
@@ -42,7 +42,7 @@
                     11h ago
                   </ion-note>
                 </ion-col>
-              </ion-row>
+              </ion-row> -->
 
     </ion-card>
       

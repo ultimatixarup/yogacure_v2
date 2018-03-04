@@ -11,13 +11,17 @@ export class YogaPage {
   selectedItem: any;
   icons: string[];
   items: Array<{label: string,name: string,description: string, data: string, image: string, type: string}>;
-
+  header: string;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   
             var type = navParams.get('type');
-  
-            
+            if(type == '15')
+                this.header = "15 Min Drills";
+            else if(type == '60')
+                this.header = "One Hour Drills";
+            else 
+                this.header = "Meditations";
             
             
             
@@ -28,13 +32,13 @@ export class YogaPage {
             this.items = [];
             
             for(var i = 0; i < resp.length; i++) {
-            var element = {};
+            
             
             if(type == "60"){
             
             if(resp[i][5].indexOf("-60")>0){
             //console.log("creating element");
-            element= { label: resp[i][0],name: resp[i][5],description: resp[i][1], data: resp[i][2], image: resp[i][3].replace("-60",""), type: resp[i][4]};
+            var element= { label: resp[i][0],name: resp[i][5],description: resp[i][1], data: resp[i][2], image: resp[i][3].replace("-60",""), type: resp[i][4]};
             this.items.push(element);
             }
             continue;
@@ -79,7 +83,7 @@ export class YogaPage {
   
   
   
-   sortItems(){
+   /*sortItems(){
             //alert("sorting");
             
             items.sort(function(a, b) {
@@ -99,7 +103,7 @@ export class YogaPage {
             
             
             
-            }
+            }*/
 
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!

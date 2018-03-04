@@ -5,13 +5,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 
-//import { QuickFixPage } from '../pages/quickfix/quickfix';
-import { YogaPage } from '../pages/yoga/yoga';
-import { MediaPage } from '../pages/media/media';
-import { PolicyPage } from '../pages/policy/policy';
+
+
 
 import { ListPage } from '../pages/list/list';
 import { Http } from '@angular/http';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -51,15 +50,16 @@ export class MyApp {
   }
   
   initializeCache(){
-  
+  //alert("init");
           
             this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/getvalues?type=disease').subscribe(resp => {
                                                                                                                  
-   // alert(JSON.stringify(resp._body));                                                                                                           window.localStorage.setItem("DISEASES",resp._body);
+    //alert(JSON.stringify(resp['_body']));                                                                                                           window.localStorage.setItem("DISEASES",resp['_body']);
                                                                                                                  });
             this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/GetYogas').subscribe( resp => {
-                                                                                                  // alert(JSON.stringify(resp));
-                                                                                                   window.localStorage.setItem("YOGAS",resp._body);
+                                                                                                   //alert(resp);
+                                                                                                   //alert(resp['_body']);
+window.localStorage.setItem("YOGAS",resp['_body']);
                                                                                                    });
             
 }
@@ -67,9 +67,9 @@ export class MyApp {
 reload(){
             //alert("reload");
     this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/getvalues?type=disease').subscribe(resp => {
-        window.localStorage.setItem("DISEASES",resp._body);
+        window.localStorage.setItem("DISEASES",resp['_body']);
         });
-        this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/GetYogas').subscribe(resp => {                                       window.localStorage.setItem("YOGAS",resp._body);
+        this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/GetYogas').subscribe(resp => {                                       window.localStorage.setItem("YOGAS",resp['_body']);
         });
     
         
