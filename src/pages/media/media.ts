@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { StreamingMedia } from '@ionic-native/streaming-media';
 import { HomePage } from '../home/home';
 import { FavoritesPage } from '../favorites/favorites';
-import { ModalController, NavParams } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import { FeedbackPage } from '../feedback/feedback';
 
 

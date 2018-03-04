@@ -25,15 +25,22 @@
       </ion-item>
       <button ion-button type="submit" block>Submit Feedback</button>
     </form>
-      
-   
-      <b>
-        
-            &nbsp;&nbsp;Your Previous Feedbacks
-      </b>
-      <ion-item></ion-item><ion-list><ion-item *ngFor="let item of items">{{item.message}}</ion-item></ion-list> 
- 
     
+    <ion-item>
+        <ion-label>You previous feedbacks on this Asana</ion-label>
+    </ion-item>
+   <ion-item>
+      
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+     
+      
+        {{item.message}}
+     
+    </ion-item>
+  </ion-list>
+ 
+ </ion-item>
     
     
     

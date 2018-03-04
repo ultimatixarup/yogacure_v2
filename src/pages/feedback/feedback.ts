@@ -18,7 +18,7 @@ export class FeedbackPage {
   selectedYoga:any;
   
   constructor(public navParams: NavParams,public viewCtrl: ViewController, public http: Http) {
-  alert("inside");
+  //alert("inside");
   this.selectedYoga = navParams.get('data');
   this.selectedDisease = navParams.get('selectedDisease');
    if(window.localStorage.getItem("USER")!=null){
@@ -36,12 +36,12 @@ export class FeedbackPage {
             
             };
             
-            console.log("data===="+JSON.stringify(data));
+            //alert("data===="+JSON.stringify(data));
   
   this.http.post('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/getFeedbackByContext',data).subscribe(resp => {
-              alert(resp);                                                                                                   
-         this.items = resp['_body'].Items;
-         alert(items);
+              //alert(resp['_body']);                                                                                                   
+         this.items = JSON.parse(resp['_body']).Items;
+         //alert(this.items);
          
    });
    
@@ -60,7 +60,13 @@ export class FeedbackPage {
             var data={
                 identifier:this.feedbackName+"#"+this.feedbackEmail+"#"+this.selectedDisease.name+"#"+this.selectedYoga.name,message:this.feedbackMsg
             };
-            this.http.post('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/feedbackFunction', JSON.stringify(data));
+            //alert("data===="+JSON.stringify(data));
+            this.http.post('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/feedbackFunction',JSON.stringify(data)) .subscribe(data => {
+            //alert(data);
+            //alert("Feedback added");
+        }, error => {
+           // alert("Oooops!");
+        });
             
         this.viewCtrl.dismiss();
   }
