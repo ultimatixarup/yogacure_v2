@@ -14,6 +14,7 @@ export class YogaPage {
   icons: string[];
   items: Array<{label: string,name: string,description: string, data: string, image: string, type: string}>;
   header: string;
+  allowed:Array<{}>;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   
@@ -25,7 +26,7 @@ export class YogaPage {
             else 
                 this.header = "Meditations";
             
-            
+            this.allowed = ["diabetes","knee pain","Headache"];
             
             var resp = JSON.parse(window.localStorage.getItem("DISEASES"));
             
@@ -109,10 +110,15 @@ export class YogaPage {
 
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
+    if(this.allowed.indexOf(item.name) > -1){
+    
     this.navCtrl.push(QuickFixPage, {
       item: item
       
     });
+    } else {
+      alert("Please login");
+    }
   }
   
   goToHome(param):void{

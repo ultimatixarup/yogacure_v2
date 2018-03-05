@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    
+
+<ion-content>
+    <ion-item *ngIf="loggedIn">
+        <ion-label>Already Logged in</ion-label>
+    </ion-item>
+    
+
+    <form *ngIf = "!loggedIn" (ngSubmit)="login()">
+      
+     <ion-item>
+        <ion-label>Your Email</ion-label>
+        <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Your Password</ion-label>
+        <ion-input type="password" [(ngModel)]="password" name="name"></ion-input>
+      </ion-item>
+          
+
+      <button ion-button type="submit" block>{{ loginLabel }}</button>
+    </form>
+    
+  
+</ion-content>

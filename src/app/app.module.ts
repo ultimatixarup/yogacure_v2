@@ -13,6 +13,7 @@ import { MediaPage } from '../pages/media/media';
 import { PolicyPage } from '../pages/policy/policy';
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { FeedbackPage } from '../pages/feedback/feedback';
+import { LoginPage } from '../pages/login/login';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -32,6 +33,7 @@ import { StreamingMedia } from '@ionic-native/streaming-media';
     MediaPage,
     FeedbackPage,
     PolicyPage,
+    LoginPage,
     FavoritesPage,
     ListPage
   ],
@@ -52,6 +54,7 @@ import { StreamingMedia } from '@ionic-native/streaming-media';
     MediaPage,
     FeedbackPage,
     PolicyPage,
+    LoginPage,
     FavoritesPage,
     ListPage
   ],
