@@ -11,12 +11,12 @@
     
 
 <ion-content>
-    <ion-item *ngIf="loggedIn">
+   <!-- <ion-item *ngIf="loggedIn">
         <ion-label>Already Logged in</ion-label>
     </ion-item>
-    
+    -->
 
-    <form *ngIf = "!loggedIn" (ngSubmit)="login()">
+   
       
      <ion-item>
         <ion-label>Your Email</ion-label>
@@ -27,9 +27,21 @@
         <ion-input type="password" [(ngModel)]="password" name="name"></ion-input>
       </ion-item>
           
-
-      <button ion-button type="submit" block>{{ loginLabel }}</button>
-    </form>
+      <ion-item>
+          <button ion-button type="submit" (click)="login()" block>Sign In</button>
+      </ion-item>    
+    
+      <ion-item>
+          <ion-label>First time user</ion-label>
+      </ion-item>  
+        
+      <ion-item>
+          <button ion-button type="submit" block>Sign up</button>
+      </ion-item>      
+       <ion-item>
+          <ion-label>{{loginMessage}}</ion-label>
+      </ion-item>  
+   
     
   
 </ion-content>

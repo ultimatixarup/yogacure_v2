@@ -31,6 +31,9 @@
       
             
         </div>
+    <ion-item *ngIf="loggedinUser">
+        <ion-label>Logged in user: {{loggedinUser}}</ion-label>
+    </ion-item>
         
         
  
@@ -39,6 +42,7 @@
      <video class="video" webkit-playsinline poster="http://bsswest.org/yogamedia/yoga-poster.jpg"><source src="http://bsswest.org/yogamedia/c8z43_blVQA.mp4"/></video>
      
      </div> -->
+    
     </ion-content>
 <ion-footer>
    <ion-navbar>

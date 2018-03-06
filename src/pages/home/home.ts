@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { YogaPage } from '../yoga/yoga';
 import { FavoritesPage } from '../favorites/favorites';
 import { LoginPage } from '../login/login';
@@ -11,20 +11,23 @@ import { LoginPage } from '../login/login';
 export class HomePage {
   loginLabel:string;
   loggedIn:any;
+  loggedinUser:string;
   
   
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public navParams:NavParams ) {
+  
+    this.loggedinUser = navParams.get('loggedinUser');
     
     this.loginLabel ="Login / Register";
     this.loggedIn = false;
-    if(window.localStorage.getItem("LOGGEDIN")!=null)
-        this.loggedIn = window.localStorage.getItem("LOGGEDIN");
-    //alert(this.loggedIn);
-    if(this.loggedIn == true){
+    if(window.localStorage.getItem("LOGGEDIN")!=null){
+        this.loggedinUser = window.localStorage.getItem("LOGGEDIN");
         this.loginLabel = "Logout";
     }
     
   }
+  
+  
   goToAilements(param):void{
     //alert("in here");
      this.navCtrl.push(YogaPage, {
@@ -41,7 +44,13 @@ export class HomePage {
     this.navCtrl.push(FavoritesPage,{});
   }  
   goToLogin(){
-    this.navCtrl.push(LoginPage);
+  
+  
+    if(this.loginLabel == "Logout"){
+     alert("login out");
+      window.localStorage.setItem("LOGGEDIN",null);
+    }
+    this.navCtrl.push(HomePage);
     
   }
 

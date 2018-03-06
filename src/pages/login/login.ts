@@ -15,19 +15,24 @@ export class LoginPage {
   password:string;
   loggedIn:any;
   loginLabel:string;
+  loginMessage:string;
   
   constructor(public navCtlr: NavController, public http: Http) {
      
      this.loggedIn = window.localStorage.getItem("LOGGEDIN");
-     if(this.loggedIn == true){
+     if(this.loggedIn != null ){
        this.loginLabel = "Logout";
+     } else {
+       this.loginLabel = "Login / Sign up";
      }
+     this.loginMessage = "";
  
   }
 
+  
  
   
-  login(){
+  signup(){
        
     let body = {"username": this.username, "password": this.password,"status":"loggedin"};
 
@@ -36,17 +41,39 @@ export class LoginPage {
      this.http.post('https://ygug5qdleb.execute-api.us-east-1.amazonaws.com/prod/loginfunction', body)
             .subscribe(
                 response => {
-                    window.localStorage.setItem("LOGGEDIN",true);
+                   // window.localStorage.setItem("LOGGEDIN");
+                   this.loginMessage = "Account created, please login";
                 }, error => {
                    alert(error);
                 }
             );
-    this.navCtlr.setRoot(HomePage);
-       
-       
-       
-       
-       
-  }
+ }
+ login(){
+ 
+ let body = {"username": this.username, "password": this.password};
+
+   
+ 
+     this.http.post('https://ygug5qdleb.execute-api.us-east-1.amazonaws.com/prod/authenticate', body)
+            .subscribe(
+                response => {
+                   // window.localStorage.setItem("LOGGEDIN","true");
+                   console.log(response);
+                   if(response._body.indexOf("pass") > -1){
+                    window.localStorage.setItem("LOGGEDIN",this.username);s
+                    this.navCtlr.setRoot(HomePage,{
+                        "loggedinUser":this.username,
+                       
+                    });
+                   } else {
+                    this.loginMessage = "Login failed";
+                   }
+                }, error => {
+                   alert(error);
+                }
+            );
+ 
+ 
+ }
   
 }
