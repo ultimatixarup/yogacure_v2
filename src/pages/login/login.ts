@@ -59,8 +59,8 @@ export class LoginPage {
                 response => {
                    // window.localStorage.setItem("LOGGEDIN","true");
                    console.log(response);
-                   if(response._body.indexOf("pass") > -1){
-                    window.localStorage.setItem("LOGGEDIN",this.username);s
+                   if(response['_body'].indexOf("pass") > -1){
+                    window.localStorage.setItem("LOGGEDIN",this.username);
                     this.navCtlr.setRoot(HomePage,{
                         "loggedinUser":this.username,
                        

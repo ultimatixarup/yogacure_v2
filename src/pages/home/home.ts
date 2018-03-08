@@ -20,7 +20,8 @@ export class HomePage {
     
     this.loginLabel ="Login / Register";
     this.loggedIn = false;
-    if(window.localStorage.getItem("LOGGEDIN")!=null){
+    if(!(window.localStorage.getItem("LOGGEDIN"))){
+        alert('setting to logout'+window.localStorage.getItem("LOGGEDIN"));
         this.loggedinUser = window.localStorage.getItem("LOGGEDIN");
         this.loginLabel = "Logout";
     }
@@ -43,14 +44,18 @@ export class HomePage {
   goToFavs(){
     this.navCtrl.push(FavoritesPage,{});
   }  
+  
   goToLogin(){
   
   
     if(this.loginLabel == "Logout"){
      alert("login out");
       window.localStorage.setItem("LOGGEDIN",null);
+      this.navCtrl.push(HomePage);
+    } else{
+        this.navCtrl.push(LoginPage);
     }
-    this.navCtrl.push(HomePage);
+    
     
   }
 
