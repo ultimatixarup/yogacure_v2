@@ -5,27 +5,22 @@ import { FavoritesPage } from '../favorites/favorites';
 
 import {LoginComponent} from '../auth/login.component';
 
+import {LoggedInCallback} from "../../providers/cognito.service";
+import {UserLoginService} from "../../providers/userLogin.service";
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
+export class HomePage implements LoggedInCallback  {
   loginLabel:string;
   loggedIn:any;
   loggedinUser:string;
   
+  // check if user logged in. If logged in then set valid login label
+  constructor(public navCtrl: NavController, public navParams:NavParams,public userService: UserLoginService ) {
   
-  constructor(public navCtrl: NavController, public navParams:NavParams ) {
-  
-    this.loggedinUser = navParams.get('loggedinUser');
-    
-    this.loginLabel ="Login / Register";
-    this.loggedIn = false;
-    if(!(window.localStorage.getItem("LOGGEDIN"))){
-        alert('setting to logout'+window.localStorage.getItem("LOGGEDIN"));
-        this.loggedinUser = window.localStorage.getItem("LOGGEDIN");
-        this.loginLabel = "Logout";
-    }
+     this.userService.isAuthenticated(this);
     
   }
   
@@ -50,14 +45,24 @@ export class HomePage {
   
   
     if(this.loginLabel == "Logout"){
-     alert("login out");
-      window.localStorage.setItem("LOGGEDIN",null);
-      this.navCtrl.push(LoginComponent);
+      this.userService.logout();
+      this.loginLabel ="Login / Register";
+     
     } else{
         this.navCtrl.push(LoginComponent);
     }
     
     
   }
+  
+  isLoggedInCallback(message: string, isLoggedIn: boolean) {
+        if (isLoggedIn) {
+            this.loggedIn = true;
+            this.loginLabel ="Logout";
+        } else {
+            this.loginLabel ="Login / Register";
+        }
+        //this.navCtrl.setRoot(LoginComponent)
+    }
 
 }

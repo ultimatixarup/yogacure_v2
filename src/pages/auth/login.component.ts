@@ -6,6 +6,7 @@ import {EventsService} from "../../providers/events.service";
 import {ControlPanelComponent} from "../controlpanel/controlpanel";
 import {RegisterComponent} from "./register.component";
 import {ForgotPasswordStep1Component} from "./forgotPassword1.component";
+import { HomePage } from "../home/home";
 @Component({
     templateUrl: 'login.html'
 })
@@ -44,7 +45,8 @@ export class LoginComponent implements CognitoCallback, LoggedInCallback {
             console.log("result: " + message);
         } else { //success
             console.log("Redirect to ControlPanelComponent");
-            this.nav.setRoot(ControlPanelComponent);
+           
+            this.nav.setRoot(HomePage);
         }
     }
 
@@ -52,7 +54,7 @@ export class LoginComponent implements CognitoCallback, LoggedInCallback {
         console.log("The user is logged in: " + isLoggedIn);
         if (isLoggedIn) {
             this.eventService.sendLoggedInEvent();
-            this.nav.setRoot(ControlPanelComponent);
+            this.nav.setRoot(HomePage);
         }
     }
 

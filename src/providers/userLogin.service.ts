@@ -92,7 +92,7 @@ export class UserLoginService {
 
         console.log("Getting the current user");
         let cognitoUser = this.cUtil.getCurrentUser();
-
+        console.log("getting current user:"+cognitoUser)
         if (cognitoUser != null) {
             cognitoUser.getSession(function (err, session) {
                 if (err) {
