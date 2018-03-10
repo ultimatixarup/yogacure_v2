@@ -5,19 +5,27 @@ import { QuickFixPage } from '../quickfix/quickfix';
 import { HomePage } from '../home/home';
 import { FavoritesPage } from '../favorites/favorites';
 
+import {LoggedInCallback} from "../../providers/cognito.service";
+import {UserLoginService} from "../../providers/userLogin.service";
+
+import { AlertController } from 'ionic-angular';
+
+
 @Component({
   selector: 'page-yoga',
   templateUrl: 'yoga.html'
 })
-export class YogaPage {
+export class YogaPage implements LoggedInCallback {
   selectedItem: any;
   icons: string[];
   items: Array<{label: string,name: string,description: string, data: string, image: string, type: string}>;
   header: string;
   allowed:Array<{}>;
+  loggedIn:any;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public userService: UserLoginService,public alertCtrl:AlertController) {
   
+            this.userService.isAuthenticated(this);
             var type = navParams.get('type');
             if(type == '15')
                 this.header = "15 Min Drills";
@@ -109,16 +117,22 @@ export class YogaPage {
             }*/
 
   itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
-    if(this.allowed.indexOf(item.name) > -1){
     
-    this.navCtrl.push(QuickFixPage, {
-      item: item
-      
-    });
-    } else {
-      alert("Please login");
-    }
+    if(this.allowed.indexOf(item.name) > -1){
+     if(this.loggedIn){
+        this.navCtrl.push(QuickFixPage, {
+          item: item
+
+        });
+     } else {
+         let alert = this.alertCtrl.create({
+            title: 'Access Denied',
+            subTitle: 'Please login to access this feature',
+            buttons: ['Dismiss']
+          });
+          alert.present();
+     }
+    } 
   }
   
   goToHome(param):void{
@@ -129,6 +143,14 @@ export class YogaPage {
   goToFavs(){
     this.navCtrl.push(FavoritesPage,{});
   }  
-  
+  isLoggedInCallback(message: string, isLoggedIn: boolean) {
+        if (isLoggedIn) {
+            this.loggedIn = true;
+            
+        } else {
+            this.loggedIn = false;
+        }
+        
+    }
   
 }
