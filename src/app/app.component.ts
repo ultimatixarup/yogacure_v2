@@ -1,16 +1,17 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform,Events, MenuController, NavController } from 'ionic-angular';
+
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AwsUtil } from '../providers/aws.service';
+import { ControlPanelComponent } from '../pages/controlpanel/controlpanel';
 
+import { LoginComponent } from '../pages/auth/login.component';
+import { LogoutComponent } from '../pages/auth/logout.component';
 import { HomePage } from '../pages/home/home';
-
-
-
-
-import { ListPage } from '../pages/list/list';
 import { Http } from '@angular/http';
-
+import { ListPage } from '../pages/list/list';
 
 @Component({
   templateUrl: 'app.html'
@@ -22,8 +23,11 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public http: Http ) {
+constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
+  public http: Http,public events: Events,
+                public awsUtil: AwsUtil ) {
     this.initializeApp();
+    this.awsUtil.initAwsService();
 
     // used for an example of ngFor and navigation
     this.pages = [

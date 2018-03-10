@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { YogaPage } from '../yoga/yoga';
 import { FavoritesPage } from '../favorites/favorites';
-import { LoginPage } from '../login/login';
+
+import {LoginComponent} from '../auth/login.component';
 
 @Component({
   selector: 'page-home',
@@ -51,9 +52,9 @@ export class HomePage {
     if(this.loginLabel == "Logout"){
      alert("login out");
       window.localStorage.setItem("LOGGEDIN",null);
-      this.navCtrl.push(HomePage);
+      this.navCtrl.push(LoginComponent);
     } else{
-        this.navCtrl.push(LoginPage);
+        this.navCtrl.push(LoginComponent);
     }
     
     

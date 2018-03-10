@@ -20,8 +20,20 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { StreamingMedia } from '@ionic-native/streaming-media';
-
-
+import { CognitoUtil } from '../providers/cognito.service';
+import { AwsUtil } from '../providers/aws.service';
+import { ControlPanelComponent } from '../pages/controlpanel/controlpanel';
+import { EventsService } from '../providers/events.service';
+import { LoginComponent } from '../pages/auth/login.component';
+import { RegisterComponent } from '../pages/auth/register.component';
+import { ConfirmRegistrationComponent } from '../pages/auth/confirmRegistration.component';
+import { ResendCodeComponent } from '../pages/auth/resendCode.component';
+import { ForgotPasswordStep1Component } from '../pages/auth/forgotPassword1.component';
+import { ForgotPasswordStep2Component} from '../pages/auth/forgotPassword2.component';
+import { UserLoginService} from '../providers/userLogin.service';
+import { UserParametersService} from '../providers/userParameters.service';
+import { UserRegistrationService} from '../providers/userRegistration.service';
+import { LogoutComponent} from '../pages/auth/logout.component';
 
 
 @NgModule({
@@ -35,6 +47,14 @@ import { StreamingMedia } from '@ionic-native/streaming-media';
     PolicyPage,
     LoginPage,
     FavoritesPage,
+    LoginComponent,
+        LogoutComponent,
+        RegisterComponent,
+        ConfirmRegistrationComponent,
+        ResendCodeComponent,
+        ForgotPasswordStep1Component,
+        ForgotPasswordStep2Component,
+        ControlPanelComponent,
     ListPage
   ],
   imports: [
@@ -56,12 +76,26 @@ import { StreamingMedia } from '@ionic-native/streaming-media';
     PolicyPage,
     LoginPage,
     FavoritesPage,
+    LoginComponent,
+        LogoutComponent,
+        RegisterComponent,
+        ConfirmRegistrationComponent,
+        ResendCodeComponent,
+        ForgotPasswordStep1Component,
+        ForgotPasswordStep2Component,
+        ControlPanelComponent,
     ListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     StreamingMedia,
+    UserLoginService,
+        UserParametersService,
+        UserRegistrationService,
+        EventsService,
+        AwsUtil,
+        CognitoUtil,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
