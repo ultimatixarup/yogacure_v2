@@ -35,6 +35,10 @@ import { UserParametersService} from '../providers/userParameters.service';
 import { UserRegistrationService} from '../providers/userRegistration.service';
 import { LogoutComponent} from '../pages/auth/logout.component';
 
+import { PaymentPage } from '../pages/payment/payment';
+
+import { PayPal } from '@ionic-native/paypal';
+
 
 @NgModule({
   declarations: [
@@ -55,6 +59,7 @@ import { LogoutComponent} from '../pages/auth/logout.component';
         ForgotPasswordStep1Component,
         ForgotPasswordStep2Component,
         ControlPanelComponent,
+        PaymentPage,
     ListPage
   ],
   imports: [
@@ -84,6 +89,7 @@ import { LogoutComponent} from '../pages/auth/logout.component';
         ForgotPasswordStep1Component,
         ForgotPasswordStep2Component,
         ControlPanelComponent,
+        PaymentPage,
     ListPage
   ],
   providers: [
@@ -96,6 +102,7 @@ import { LogoutComponent} from '../pages/auth/logout.component';
         EventsService,
         AwsUtil,
         CognitoUtil,
+        PayPal,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

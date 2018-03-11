@@ -9,6 +9,7 @@ import {LoggedInCallback} from "../../providers/cognito.service";
 import {UserLoginService} from "../../providers/userLogin.service";
 
 import { AlertController } from 'ionic-angular';
+import { PaymentPage } from '../payment/payment';
 
 
 @Component({
@@ -151,6 +152,10 @@ export class YogaPage implements LoggedInCallback {
             this.loggedIn = false;
         }
         
+    }
+    
+    goToProducts(){
+        this.navCtrl.setRoot(PaymentPage);
     }
   
 }
