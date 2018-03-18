@@ -53,16 +53,27 @@ constructor(public platform: Platform, public statusBar: StatusBar, public splas
   }
   
   initializeCache(){
-  //alert("init");
+   //alert("init");
           
             this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/getvalues?type=disease').subscribe(resp => {
                                                                                                                  
-    //alert(JSON.stringify(resp['_body']));                                                                                                           window.localStorage.setItem("DISEASES",resp['_body']);
+    //alert(JSON.stringify(resp['_body'])); 
+    setTimeout(() => {
+        window.localStorage.setItem("DISEASES",resp['_body']);
+  }, 1000);
+
+    
+    
+    
                                                                                                                  });
             this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/GetYogas').subscribe( resp => {
                                                                                                    //alert(resp);
                                                                                                    //alert(resp['_body']);
-window.localStorage.setItem("YOGAS",resp['_body']);
+                                                                                                   
+  setTimeout(() => {
+        window.localStorage.setItem("YOGAS",resp['_body']);
+  }, 1000);                                                                                                 
+
                                                                                                    });
             
 }

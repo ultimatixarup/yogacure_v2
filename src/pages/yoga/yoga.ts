@@ -120,21 +120,26 @@ export class YogaPage implements LoggedInCallback {
 
   itemTapped(event, item) {
     
-    if(this.allowed.indexOf(item.name) > -1){
-     if(this.loggedIn){
+     if(this.allowed.indexOf(item.name) > -1){
         this.navCtrl.push(QuickFixPage, {
           item: item
 
         });
-     } else {
-         let alert = this.alertCtrl.create({
+      } else if(this.loggedIn){
+     
+          this.navCtrl.push(QuickFixPage, {
+              item: item
+
+            });
+      } else {
+          let alert = this.alertCtrl.create({
             title: 'Access Denied',
             subTitle: 'Please login to access this feature',
             buttons: ['Dismiss']
           });
           alert.present();
-     }
-    } 
+      }
+
   }
   
   goToHome(param):void{
