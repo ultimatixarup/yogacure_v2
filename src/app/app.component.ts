@@ -1,14 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform,Events, MenuController, NavController } from 'ionic-angular';
+import { Nav, Platform,Events } from 'ionic-angular';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AwsUtil } from '../providers/aws.service';
-import { ControlPanelComponent } from '../pages/controlpanel/controlpanel';
 
-import { LoginComponent } from '../pages/auth/login.component';
-import { LogoutComponent } from '../pages/auth/logout.component';
+
+
 import { HomePage } from '../pages/home/home';
 import { Http } from '@angular/http';
 import { ListPage } from '../pages/list/list';

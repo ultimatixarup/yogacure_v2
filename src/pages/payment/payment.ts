@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal';
+//import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
+
 
 /**
  * Generated class for the PaymentPage page.
@@ -16,22 +18,21 @@ import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal
 })
 export class PaymentPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public payPal: PayPal) {
+  constructor(public navCtrl: NavController,public payPal:  PayPal) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PaymentPage');
   }
-//live:AXrpLWvfOz81QETgk97EJpSFt8dAMjk8r6_pzNuOX2h_AiA5ZuOiptOvax4LGAszWtosC2G6ZFJDB1GM
 
-//sandbox:AYI3CuFBwDEjYgobd4AiTVzE4tvVP_V8IXlo3BsOt72SeB8lhFcs5NC9G1C2jjQwWbDD1gLE6Zm8ZGV8
   pay(amount){
+
   
                   this.payPal.init({
                   PayPalEnvironmentProduction: 'AXrpLWvfOz81QETgk97EJpSFt8dAMjk8r6_pzNuOX2h_AiA5ZuOiptOvax4LGAszWtosC2G6ZFJDB1GM',
                   PayPalEnvironmentSandbox: 'AYI3CuFBwDEjYgobd4AiTVzE4tvVP_V8IXlo3BsOt72SeB8lhFcs5NC9G1C2jjQwWbDD1gLE6Zm8ZGV8'
                 }).then(() => {
-                  // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
+                   //Environments: PayPalEnvironmentProduction,
                   this.payPal.prepareToRender('PayPalEnvironmentProduction', new PayPalConfiguration({
                     // Only needed if you get an "Internal Service Error" after PayPal login!
                     //payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal

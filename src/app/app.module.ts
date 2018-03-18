@@ -39,6 +39,8 @@ import { PaymentPage } from '../pages/payment/payment';
 
 import { PayPal } from '@ionic-native/paypal';
 
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 
 @NgModule({
   declarations: [
@@ -103,6 +105,7 @@ import { PayPal } from '@ionic-native/paypal';
         AwsUtil,
         CognitoUtil,
         PayPal,
+        InAppBrowser,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

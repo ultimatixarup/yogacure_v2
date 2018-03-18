@@ -3,7 +3,7 @@ import {CognitoCallback, LoggedInCallback} from "../../providers/cognito.service
 import {AlertController, NavController, NavParams} from "ionic-angular";
 import {UserLoginService} from "../../providers/userLogin.service";
 import {EventsService} from "../../providers/events.service";
-import {ControlPanelComponent} from "../controlpanel/controlpanel";
+
 import {RegisterComponent} from "./register.component";
 import {ForgotPasswordStep1Component} from "./forgotPassword1.component";
 import { HomePage } from "../home/home";

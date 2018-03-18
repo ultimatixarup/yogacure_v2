@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {CognitoCallback, CognitoUtil, LoggedInCallback} from "./cognito.service";
 import {EventsService} from "./events.service";
-declare let AWS: any;
+//declare let AWS: any;
 declare let AWSCognito: any;
 
 @Injectable()

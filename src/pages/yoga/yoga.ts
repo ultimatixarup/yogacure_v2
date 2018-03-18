@@ -39,9 +39,10 @@ export class YogaPage implements LoggedInCallback {
             
             var resp = JSON.parse(window.localStorage.getItem("DISEASES"));
             
-            //alert(resp[7][3]);
+            //alert("resp=="+resp);
             
             this.items = [];
+            
             
             for(var i = 0; i < resp.length; i++) {
             
