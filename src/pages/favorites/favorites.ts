@@ -17,7 +17,7 @@ export class FavoritesPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
      this.header = "Favorites";
      var elements = window.localStorage.getItem("FAVS");
-           
+           //alert(elements);
      this.items = JSON.parse(elements);
    }
 

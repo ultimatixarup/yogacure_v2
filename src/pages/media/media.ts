@@ -24,6 +24,7 @@ export class MediaPage {
   options:any;
   easyVid:any;
   selectedDisease:any;
+  items1: Array<{name: any,label:any, description: any, data: any, image: any, type: any,easyvid:any,icon:any}>;
   
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public streamingMedia: StreamingMedia, public modalCtrl: ModalController) {
@@ -51,9 +52,10 @@ export class MediaPage {
            
             
             var cachedelements = window.localStorage.getItem("FAVS");
-            if(cachedelements != null && cachedelements.length > 0){
+            if(cachedelements != null){
             
                 var elements = JSON.parse(cachedelements);
+                
                 this.favLabel = "Add to Favorite";
                 for(var i = 0;i<elements.length; i++){
 
@@ -66,14 +68,14 @@ export class MediaPage {
                     break;
                 }
             }
-            
+           
             
             
             } else {
                 this.favLabel = "Add to Favorite";
             }
             
-            if(easyvid.length > 0){
+            if(easyvid && easyvid.length > 0){
              this.easyVid = true;
             } else {
                 this.easyVid = false;
@@ -145,7 +147,7 @@ export class MediaPage {
   }  
   
      addToFav(){
-           
+          
             if(this.favLabel == "Remove from Favorite"){
             
             this.favLabel = "Add to Favorite"
@@ -160,13 +162,16 @@ export class MediaPage {
             
             if(favs === null || favs.length == 0){
             
-            //elements.push(this.selectedYoga);
-            window.localStorage.setItem("FAVS",JSON.stringify(this.selectedYoga));
+             //alert("1"+favs);
+             this.items1 = [];
+             this.items1.push(this.selectedYoga);
+            window.localStorage.setItem("FAVS",JSON.stringify(this.items1));
             //console.log(elements);
             } else {
             
             //if already exists in faverites list, then remove it
             var elements1=JSON.parse(window.localStorage.getItem("FAVS"));
+            //alert("2"+JSON.stringify(elements1));
             for(var i = 0;i<elements1.length; i++){
             
             var element = elements1[i];
