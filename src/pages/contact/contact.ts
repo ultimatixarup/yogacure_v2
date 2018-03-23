@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { HomePage } from '../home/home';
+import { FavoritesPage } from '../favorites/favorites';
 /**
  * Generated class for the ContactPage page.
  *
@@ -20,6 +21,14 @@ export class ContactPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContactPage');
+  }
+  
+  goToHome(){
+    this.navCtrl.setRoot(HomePage,{});
+  }
+  
+  goToFavs(){
+    this.navCtrl.push(FavoritesPage,{});
   }
 
 }
