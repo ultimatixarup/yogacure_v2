@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { MediaPage } from '../media/media';
 import { HomePage } from '../home/home';
+import { PaymentPage } from '../payment/payment';
 
 @Component({
   selector: 'page-favorites',
@@ -32,4 +33,8 @@ export class FavoritesPage {
     //alert("in here");
      this.navCtrl.setRoot(HomePage);
   }
+  
+  goToProducts(){
+        this.navCtrl.push(PaymentPage);
+    }
 }

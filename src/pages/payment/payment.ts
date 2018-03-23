@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal';
-//import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
+
+import { HomePage } from '../home/home';
+import { FavoritesPage } from '../favorites/favorites';
 
 
 /**
@@ -70,6 +72,14 @@ export class PaymentPage {
                 });
   
   }
+  
+   goToHome(){
+    this.navCtrl.setRoot(HomePage,{});
+  }
+  
+  goToFavs(){
+    this.navCtrl.push(FavoritesPage,{});
+  }  
 
 
 }

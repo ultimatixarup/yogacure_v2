@@ -5,6 +5,7 @@ import { HomePage } from '../home/home';
 import { FavoritesPage } from '../favorites/favorites';
 import { ModalController } from 'ionic-angular';
 import { FeedbackPage } from '../feedback/feedback';
+import { PaymentPage } from '../payment/payment';
 
 
 @Component({
@@ -192,7 +193,9 @@ export class MediaPage {
     myModal.present();
   }
   
-  
+   goToProducts(){
+        this.navCtrl.push(PaymentPage);
+    }
             
 }
             

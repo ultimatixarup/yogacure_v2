@@ -10,7 +10,10 @@ import { AwsUtil } from '../providers/aws.service';
 
 import { HomePage } from '../pages/home/home';
 import { Http } from '@angular/http';
-import { ListPage } from '../pages/list/list';
+
+import { PolicyPage } from '../pages/policy/policy';
+import { ContactPage } from '../pages/contact/contact';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -30,8 +33,9 @@ constructor(public platform: Platform, public statusBar: StatusBar, public splas
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Policy', component: PolicyPage },
+       { title: 'Contact', component: ContactPage }
+      
     ];
 
   }

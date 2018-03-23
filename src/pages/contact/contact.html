@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Contact</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+
+        <ion-refresher
+            pulling-text="Pull to refresh..."
+            on-refresh="reload()">
+        </ion-refresher>
+    
+            
+            <div style="height:100%;background: url('http://d1dcu4sbskithe.cloudfront.net/img/frontpage.jpg');background-repeat:round">
+                
+                
+                <div style="top:30%;margin-left:10%;margin-right:10%;font:white;background:green;opacity: 0.7;">
+                    
+                   
+                    <br/>
+                    <h3  style="color:white">Email: info@mandukya.org
+                    <br/>
+                    <p>
+                    We offer fully personalized yoga thererpy. Please contact us via email if you would like to schedule a free consultation. Also please provide feeback against each asanas through our feedback mechanism. Your feedback is extremely important for our continuous improvement of the product. 
+                    </p>
+                    
+                    </h3>
+                    
+                </div>
+                
+                
+      
+            
+        </div>
+    <ion-item *ngIf="loggedinUser">
+        <ion-label>Logged in user: {{loggedinUser}}</ion-label>
+    </ion-item>
+        
+        
+ 
+    <!-- <img src="http://bsswest.org/yogamedia/yoga-poster.jpg" height="100%" width="100%"> -->
+    <!-- <div style="height:100%;width:100%">
+     <video class="video" webkit-playsinline poster="http://bsswest.org/yogamedia/yoga-poster.jpg"><source src="http://bsswest.org/yogamedia/c8z43_blVQA.mp4"/></video>
+     
+     </div> -->
+    
+    </ion-content>
+<ion-footer>
+   <ion-navbar>
+    <button ion-button>
+      <ion-icon (click)="goToHome()" name="home"></ion-icon>
+      
+    </button>
+    <button ion-button>
+      <ion-icon (click)="goToFavs()" name="heart"> Favorites</ion-icon>  
+    </button>
+       
+    <button ion-button>
+      <ion-icon (click)="goToLogin()" name="log-in"> {{loginLabel }}</ion-icon>  
+    </button>
+    
+  </ion-navbar>
+</ion-footer>    
+<style>
+    .btn {
+        background: #3498db;
+        background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+        background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+        background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+        background-image: -o-linear-gradient(top, #3498db, #2980b9);
+        background-image: linear-gradient(to bottom, #3498db, #2980b9);
+        -webkit-border-radius: 28;
+        -moz-border-radius: 28;
+        border-radius: 28px;
+        font-family: Arial;
+        color: #ffffff;
+        font-size: 20px;
+        background: #3498db;
+        padding: 10px 20px 10px 20px;
+        text-decoration: none;
+    }
+
+
+
+    </style>

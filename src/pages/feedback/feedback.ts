@@ -16,11 +16,14 @@ export class FeedbackPage {
   items:any;
   selectedDisease:any;
   selectedYoga:any;
+  source;any;
   
   constructor(public navParams: NavParams,public viewCtrl: ViewController, public http: Http) {
   //alert("inside");
   this.selectedYoga = navParams.get('data');
   this.selectedDisease = navParams.get('selectedDisease');
+  this.source = navParams.get('source');
+  
    if(window.localStorage.getItem("USER")!=null){
                 this.feedbackName = window.localStorage.getItem("USER");
             }

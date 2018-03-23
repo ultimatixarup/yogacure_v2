@@ -8,7 +8,7 @@
 
 <ion-content>
 
-      <form (ngSubmit)="submitFeedback()">
+      <form (ngSubmit)="submitFeedback()" *ngIf="source">
       <ion-item>
         <ion-label>Your Name</ion-label>
         <ion-input type="text" [(ngModel)]="feedbackName" name="name"></ion-input>

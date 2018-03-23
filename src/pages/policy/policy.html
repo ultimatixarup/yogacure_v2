@@ -1,23 +1,96 @@
+<!--
+  Generated template for the PolicyPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>Policies</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+<ion-content padding>
+
+    
+       
+            <div style="height:100%;width:100%;margin:10px 10px 10px;">
+              <p>
+                 At Dr. Yogi we take the privacy of our customers ("Customer” "you" or "your”) seriously. This Privacy Policy is designed to tell you about our practices regarding the collection, use, and disclosure of information that Dr. Yogi ("Dr. Yogi", "us" or "we") or its third party service providers collect through the Pocket Yoga iPhone/iPad/iWatch application (“Dr. Yogi“ or "Application"). Data collected through your use of the Application is governed by this Privacy Policy. Please be sure to read this entire Privacy Policy before using the Application. By accessing or using Dr. Yogi, you consent to the terms and conditions of this Privacy Policy. We may modify or update this Privacy Policy at any time effective upon its posting on www.mandukya.org. Your continued use of this Application constitutes your acceptance to this Privacy Policy and any modifications or updates thereto.
+                 </p>
+                 <p>
+
+<b>Personal Information</b><br/>
+<p>
+
+Your use of Dr. Yogi may cause certain information, including information you may consider personal to you ("Personal Information"), to be stored locally on your iPhone/iPad/iWatch ("Device"). This data includes specific details of the workouts you perform ("Practice Data"). We will treat your Personal Information and Practice Data as confidential (see relevant sections below). We will not share your Personal Information or Practice Data with third parties, such as third party service providers and/or advertisers, without your permission. By default, Personal Information and Practice Data is stored locally on your Device. You may also opt to store Practice Data with Apple's App Database (see relevant sections below). No Personal Information or Practice Data is sent to our servers or stored in our servers at any point.
+</p>
+<b>
+Apple Health App Integration</b>
+<p>
+You may opt to integrate Dr. Yogi with Apple's App Database. If you grant Dr. Yogi access to Apple's App Database, Dr. Yogi will import your data from the App Database into the Application in certain circumstances, such as to aid you in the tracking of practice goals. In addition, Dr. Yogi may transfer data that you store locally on your Device, such as calories burned information, to the App Database. Dr. Yogi cannot read from or write to the App Database unless you grant access. Data accessed from the App Database will never be shared with third parties, such as third party service providers and/or advertisers, without your permission.
+</p>
+<p>
+Dr. Yogi is in no way responsible for the protection of the Practice Data and/or other information stored within Apple's App Database. You and Apple are solely responsible for the protection of such information in the App Database. Please review Apple's applicable policies and procedures before syncing and backing up your Practice Data and/or other information with the App Database.
+</p>
+<p>
+<b>
+Sharing Information
+</b><br/>
+Dr. Yogi allows you to share certain information, such as your completed practices, with social networks, including Facebook and Twitter, Google+, Pinterest, Instagram. Dr. Yogi will never automatically share your information to social networks and/or third parties without your consent. Dr. Yogi is in no way responsible for the protection of any information that you choose to share with social networks. You and such social networks are solely responsible for the protection of such information. Please review any applicable policies and procedures of such social networks before sharing your information therein.
+</p>
+<p>
+<b>
+Aggregated Data Collection
+</b><br/>
+<p>
+Dr. Yogi may automatically collect anonymous information regarding your interaction with, and use of, Dr. Yogi. Information we may collect includes, but is not limited to, device identifier and hardware information, system type, and other information about your interactions with the Application. This data is never linked to your Personal Information or Practice Data, and we do not use it to identify you personally.
+</p>
+<p>
+<b>
+Security
+</b>
+<br/>
+We take reasonable steps to protect information about you that is in our possession and control, such as your Personal Information and Practice Data, from loss, misuse, and unauthorized access, disclosure, alteration, or destruction. Unfortunately, no Internet transmission is ever completely secure or error-free. In particular, email sent between you and us may not be secure, due, for instance, to the security practices that you, your email carrier, and/or Internet provider employ. You should therefore take special care in deciding what information you send to us via email. Please keep this in mind when disclosing any personal data to us via the Internet. You are solely responsible for the protection of your Device, including any use of Dr. Yogi or any storage of Personal Information or Practice Data incident to the use of Dr. Yogi on your Device. Please consult your Device's documentation on how to manage local storage and how to apply appropriate security controls to the Device for the protection of information such as passwords. You are entirely responsible for maintaining the confidentiality of your Device password. Personal Information or Practice Data that is stored on your Device is your responsibility. In the event that your Device becomes lost or inoperable, your Practice Data may not be recoverable (see relevant sections above).
+</p>
+<p>
+<b>
+Privacy Policy Updates
+</b><br/>
+<p>
+At times it may be necessary for us to make changes to this Privacy Policy such as due to changes in the services we offer, Apple's policies and procedures, and/or the applicable laws. We reserve the right to update or modify this Privacy Policy at any time without prior notice. Please review this Privacy Policy periodically, especially before you provide any Personal Information or Practice Data to Dr. Yogi. This Privacy Policy was last updated on the date indicated below. Any changes to this Privacy Policy will become effective when we post the revised Privacy Policy on www.Dr. Yogi.fit . As set forth above, your continued use of the Application after any changes or revisions to this Privacy Policy shall indicate your acceptance and agreement with the terms of such revised Privacy Policy.
+</p>
+<p>
+<b>
+Contact Us
+</b>
+<br/>
+If you have questions about the policies described in this statement, please email us directly at
+
+support@Dr. Yogi.fit 
+                  
+              </p>
+             </div>
+            
+    
 </ion-content>
+
+<ion-footer>
+ <ion-navbar>
+    <button ion-button>
+      <ion-icon (click)="goToHome()" name="home"></ion-icon>
+      
+    </button>
+    <button ion-button>
+      <ion-icon (click)="goToFavs()" name="heart"> Favorites</ion-icon>  
+    </button>
+     
+    <button ion-button>
+      <ion-icon (click)="goToProducts()" name="cart"> Donate</ion-icon>  
+    </button>
+    
+  </ion-navbar>
+</ion-footer>    

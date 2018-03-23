@@ -9,7 +9,7 @@
 
 <ion-content class="card-background-page">
   <ion-list>
-       <ion-card ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+       <ion-card ion-item *ngFor="let item of items">
     
 
               <ion-item>
@@ -18,30 +18,26 @@
                 
               </ion-item>
 
-              <img src="http://d1dcu4sbskithe.cloudfront.net/{{ item.image }}" onerror="this.src='http://d1dcu4sbskithe.cloudfront.net/media/default.png';" />
+           <a (click)="itemTapped($event, item)"> <img src="http://d1dcu4sbskithe.cloudfront.net/{{ item.image }}" onerror="this.src='http://d1dcu4sbskithe.cloudfront.net/media/default.png';" /></a>
 
               <ion-card-content>
                 <p>{{ item.description }}</p>
               </ion-card-content>
 
-             <!-- <ion-row>
+            <!-- <ion-row>
                 <ion-col>
-                  <button ion-button icon-left clear small>
-                    <ion-icon name="thumbs-up"></ion-icon>
-                    <div>12 Likes</div>
+                  <button ion-button icon-left clear small (click)="thumbsUp(item)">
+                    <ion-icon name="thumbs-up" ></ion-icon>
+                    <div>{{ numberOfLikes }} Likes</div>
                   </button>
                 </ion-col>
                 <ion-col>
-                  <button ion-button icon-left clear small>
-                    <ion-icon name="text"></ion-icon>
-                    <div>4 Comments</div>
+                  <button ion-button icon-left clear small (click)="commentsPop(item)">
+                    <ion-icon name="text" ></ion-icon>
+                    <div>{{ numberOfComments }} Comments</div>
                   </button>
-                </ion-col>
-                <ion-col center text-center>
-                  <ion-note>
-                    11h ago
-                  </ion-note>
-                </ion-col>
+                </ion-col> 
+                
               </ion-row> -->
 
     </ion-card>
@@ -61,6 +57,10 @@
     </button>
     <button ion-button>
       <ion-icon (click)="goToFavs()" name="heart"> Favorites</ion-icon>  
+    </button>
+     
+    <button ion-button>
+      <ion-icon (click)="goToProducts()" name="cart"> Donate</ion-icon>  
     </button>
     
   </ion-navbar>

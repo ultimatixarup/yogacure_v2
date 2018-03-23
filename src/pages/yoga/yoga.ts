@@ -161,7 +161,7 @@ export class YogaPage implements LoggedInCallback {
     }
     
     goToProducts(){
-        this.navCtrl.setRoot(PaymentPage);
+        this.navCtrl.push(PaymentPage);
     }
   
 }

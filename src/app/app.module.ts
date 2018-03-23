@@ -14,6 +14,8 @@ import { PolicyPage } from '../pages/policy/policy';
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { FeedbackPage } from '../pages/feedback/feedback';
 import { LoginPage } from '../pages/login/login';
+import { ContactPage } from '../pages/contact/contact';
+
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -62,6 +64,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
         ForgotPasswordStep2Component,
         ControlPanelComponent,
         PaymentPage,
+        ContactPage,
     ListPage
   ],
   imports: [
@@ -92,6 +95,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
         ForgotPasswordStep2Component,
         ControlPanelComponent,
         PaymentPage,
+        ContactPage,
     ListPage
   ],
   providers: [
