@@ -13,25 +13,37 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
      <div style="height:100%;background: url('http://d1dcu4sbskithe.cloudfront.net/img/frontpage.jpg');background-repeat:round">
                 
                 
-                <div style="top:5%;margin-left:5%">
+                <div style="top:5%;margin-left:5%;margin-right:5%">
                     
+                    <ion-item>
+                      <ion-label> -- Donate ($) --</ion-label>
+                      <ion-select #C (ionChange)="pay(C.value)">>
+                        <ion-option value="10.00">$10.00</ion-option>
+                        <ion-option value="20.00">$20.00</ion-option>
+                        <ion-option value="40.00">$40.00</ion-option>
+                        <ion-option value="60.00">$60.00</ion-option>
+                        <ion-option value="80.00">$80.00</ion-option>
+                        <ion-option value="100.00">$100.00</ion-option>
+                        <ion-option value="200.00">$200.00</ion-option>
+                        <ion-option value="500.00">$500.00</ion-option>
+                        <ion-option value="1000.00">$1000.00</ion-option>
+                        <ion-option value="5000.00">$5000.00</ion-option>
+     
+                      </ion-select>
+                    </ion-item>
                     
-                    <button ion-button (click)="pay('10.00')">$10.00</button>
-                    <button ion-button (click)="pay('20.00')">$20.00</button>
-                    <button ion-button (click)="pay('40.00')">$40.00</button>
-                    <button ion-button (click)="pay('60.00')">$60.00</button>
-                    <button ion-button (click)="pay('100.00')">$100.00</button>
-                    <button ion-button (click)="pay('200.00')">$200.00</button>
-                    <button ion-button (click)="pay('500.00')">$500.00</button>
-                    <button ion-button (click)="pay('1000.00')">$1000.00</button>
+         </div>
+         <div style="top:5%;margin-left:5%;margin-right:5%;background:green;opacity: 0.7;">
+         
                     
                     <h2 style="color:white">Help us to serve you better</h2>
-                    <h4 style="color:white">( All donations are tax deductable )</h4>
+                    <h4 style="color:white">Mandukya is a non profit organization dedicated to humanity to improve life by applying ancient science of Yoga to relieve ailements and cure diseases!. <br/>
+                    Mandukya believes in natural cure for every human problem. We have just started to understand the true potential of our ancient science of Yoga. Mandukya believes that yoga can provide relief from ailements, which will make you independent of modern medical support.!</h4>
                     
                     
      
@@ -47,7 +59,7 @@
       
     </button>
     <button ion-button>
-      <ion-icon (click)="goToFavs()" name="heart"> Favorites</ion-icon>  
+      <ion-icon (click)="goToFavs()" name="heart"></ion-icon>  
     </button>
      
     

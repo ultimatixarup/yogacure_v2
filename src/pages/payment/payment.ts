@@ -28,6 +28,7 @@ export class PaymentPage {
   }
 
   pay(amount){
+  
 
   
                   this.payPal.init({

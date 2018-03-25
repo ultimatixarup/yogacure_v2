@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the PolicyPage page.
@@ -20,6 +21,10 @@ export class PolicyPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PolicyPage');
+  }
+  
+   goToHome(){
+    this.navCtrl.setRoot(HomePage,{});
   }
 
 }
