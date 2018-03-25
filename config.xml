@@ -84,9 +84,9 @@
     <plugin name="cordova-plugin-advanced-http" spec="~1.11.0" />
     <plugin name="cordova-plugin-media" spec="~5.0.2" />
     <plugin name="com.moust.cordova.videoplayer" spec="~1.0.1" />
-    <plugin name="com.hutchind.cordova.plugins.streamingmedia" spec="~0.1.4" />
     <plugin name="com.paypal.cordova.mobilesdk" spec="~3.5.0" />
     <plugin name="cordova-plugin-inappbrowser" spec="^2.0.2" />
+    <plugin name="com.hutchind.cordova.plugins.streamingmedia" spec="~0.1.4" />
     <engine name="android" spec="7.0.0" />
     <engine name="ios" spec="4.5.4" />
 </widget>
