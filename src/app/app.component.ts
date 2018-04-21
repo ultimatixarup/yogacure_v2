@@ -14,6 +14,9 @@ import { Http } from '@angular/http';
 import { PolicyPage } from '../pages/policy/policy';
 import { ContactPage } from '../pages/contact/contact';
 
+//import { FCM } from '@ionic-native/fcm';
+
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
 @Component({
   templateUrl: 'app.html'
@@ -27,9 +30,11 @@ export class MyApp {
 
 constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
   public http: Http,public events: Events,
-                public awsUtil: AwsUtil ) {
+                public awsUtil: AwsUtil ,private push: Push) {
     this.initializeApp();
     this.awsUtil.initAwsService();
+    
+    
 
     // used for an example of ngFor and navigation
     this.pages = [
@@ -47,8 +52,14 @@ constructor(public platform: Platform, public statusBar: StatusBar, public splas
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.initializeCache();
+      this.initializePushApp();
+      
     });
+    
   }
+  
+  
+  
 
   openPage(page) {
     // Reset the content nav to have just this page
@@ -92,6 +103,43 @@ reload(){
     
         
     }
+    
+    
+    
+    initializePushApp() {
+      const options: PushOptions = {
+           android: {},
+           ios: {
+               alert: 'true',
+               badge: true,
+               sound: 'false'
+           },
+           windows: {},
+           browser: {
+               pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+           }
+        };
+
+        const pushObject: PushObject = this.push.init(options);
+
+
+        pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification));
+
+        pushObject.on('registration').subscribe((registration: any) => 
+        
+        this.saveToken(registration));
+        
+
+        pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
+  }
+    
+    
+saveToken(token){
+   console.log(token);
+    this.http.get('http://www.getwellbyoga.com/yoga/store_token.php?token='+token).subscribe(resp =>     {});
+  
+  }
+    
   
   
   

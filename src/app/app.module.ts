@@ -43,6 +43,10 @@ import { PayPal } from '@ionic-native/paypal';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
+//import { FCM } from '@ionic-native/fcm';
+
+import { Push } from '@ionic-native/push';
+
 
 @NgModule({
   declarations: [
@@ -110,6 +114,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
         CognitoUtil,
         PayPal,
         InAppBrowser,
+        Push,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -42,7 +42,7 @@ export class PaymentPage {
                   })).then(() => {
                     let payment = new PayPalPayment(amount, 'USD', 'Description', 'sale');
                     this.payPal.renderSinglePaymentUI(payment).then(resp => {
-                      alert(resp.response.status);
+                      console.log(resp);
                       // Successfully paid
 
                       // Example sandbox response

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { YogaPage } from '../yoga/yoga';
 import { FavoritesPage } from '../favorites/favorites';
+import { ContactPage } from '../contact/contact';
 
 import {LoginComponent} from '../auth/login.component';
 
@@ -21,6 +22,21 @@ export class HomePage implements LoggedInCallback  {
   constructor(public navCtrl: NavController, public navParams:NavParams,public userService: UserLoginService ) {
   
      this.userService.isAuthenticated(this);
+     
+    
+    /*
+    this.fcm.onNotification().subscribe(data => {
+      if(data.wasTapped){
+        console.log("Received in background");
+      } else {
+        console.log("Received in foreground");
+      };
+    });
+    
+    this.fcm.onTokenRefresh().subscribe(token => {
+      alert(token);
+    });*/   
+    
     
   }
   
@@ -39,7 +55,11 @@ export class HomePage implements LoggedInCallback  {
   
   goToFavs(){
     this.navCtrl.push(FavoritesPage,{});
-  }  
+  } 
+  
+  goToContact(){
+    this.navCtrl.push(ContactPage,{});
+  }
   
   goToLogin(){
   
