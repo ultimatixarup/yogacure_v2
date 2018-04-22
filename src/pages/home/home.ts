@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { YogaPage } from '../yoga/yoga';
 import { FavoritesPage } from '../favorites/favorites';
 import { ContactPage } from '../contact/contact';
+import { StreamingMedia } from '@ionic-native/streaming-media';
 
 import {LoginComponent} from '../auth/login.component';
 
@@ -19,7 +20,7 @@ export class HomePage implements LoggedInCallback  {
   loggedinUser:string;
   
   // check if user logged in. If logged in then set valid login label
-  constructor(public navCtrl: NavController, public navParams:NavParams,public userService: UserLoginService ) {
+  constructor(public navCtrl: NavController, public navParams:NavParams,public userService: UserLoginService,public streamingMedia: StreamingMedia ) {
   
      this.userService.isAuthenticated(this);
      
@@ -83,6 +84,26 @@ export class HomePage implements LoggedInCallback  {
             this.loginLabel ="Login / Register";
         }
         //this.navCtrl.setRoot(LoginComponent)
+    }
+    
+    
+    playWhoAmI(){
+    
+          var options = {
+            successCallback: function() {
+            console.log("Video was closed without error.");
+            //window.plugins.streamingMedia.suspend();
+            },
+            errorCallback: function(errMsg) {
+            console.log("Error! " + errMsg);
+            alert(errMsg);
+            },
+            //orientation: 'landscape'
+            };
+            
+            var path =  "http://d1dcu4sbskithe.cloudfront.net/mandukya.3gp";
+            this.streamingMedia.playVideo(path,options);
+ 
     }
 
 }
