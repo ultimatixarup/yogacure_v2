@@ -76,8 +76,8 @@
       "com.moust.cordova.videoplayer": {},
       "com.paypal.cordova.mobilesdk": {},
       "cordova-plugin-statusbar": {},
-      "phonegap-plugin-push": {},
-      "com.hutchind.cordova.plugins.streamingmedia": {}
+      "com.hutchind.cordova.plugins.streamingmedia": {},
+      "phonegap-plugin-push": {}
     },
     "platforms": [
       "android"
