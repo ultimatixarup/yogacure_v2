@@ -10,6 +10,10 @@ import {LoginComponent} from '../auth/login.component';
 import {LoggedInCallback} from "../../providers/cognito.service";
 import {UserLoginService} from "../../providers/userLogin.service";
 
+import { ModalController } from 'ionic-angular';
+import { FeedbackPage } from '../feedback/feedback';
+
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -20,7 +24,7 @@ export class HomePage implements LoggedInCallback  {
   loggedinUser:string;
   
   // check if user logged in. If logged in then set valid login label
-  constructor(public navCtrl: NavController, public navParams:NavParams,public userService: UserLoginService,public streamingMedia: StreamingMedia ) {
+  constructor(public navCtrl: NavController, public navParams:NavParams,public userService: UserLoginService,public streamingMedia: StreamingMedia,public modalCtrl: ModalController ) {
   
      this.userService.isAuthenticated(this);
      
@@ -104,6 +108,11 @@ export class HomePage implements LoggedInCallback  {
             var path =  "http://d1dcu4sbskithe.cloudfront.net/mandukya.3gp";
             this.streamingMedia.playVideo(path,options);
  
+    }
+    goToFeedback(){
+        let myModal = this.modalCtrl.create(FeedbackPage,{data : "genericFeedback",selectedDisease: "genericFeedback"});
+        myModal.present();
+    
     }
 
 }

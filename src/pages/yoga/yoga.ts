@@ -38,10 +38,12 @@ export class YogaPage implements LoggedInCallback {
             this.userService.isAuthenticated(this);
             var type = this.navParams.get('type');
             if(type == '15')
-                this.header = "15 Min Drills";
+                this.header = "15 Min Practice";
             else if(type == '60')
-                this.header = "One Hour Drills";
-            else 
+                this.header = "One Hour Practice";
+            else if(type == 'mobile')
+                this.header = "Travel Yoga Practice";
+            else
                 this.header = "Meditations";
             
             this.allowed = ["diabetes","knee pain","Headache"];

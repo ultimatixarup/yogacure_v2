@@ -16,11 +16,13 @@ export class FeedbackPage {
   items:any;
   selectedDisease:any;
   selectedYoga:any;
-  source;any;
+  source:any;
+  showPrev:any;
   
   constructor(public navParams: NavParams,public viewCtrl: ViewController, public http: Http) {
   //alert("inside");
   this.selectedYoga = navParams.get('data');
+  this.showPrev = navParams.get('showPrev');
   this.selectedDisease = navParams.get('selectedDisease');
   this.source = navParams.get('source');
   

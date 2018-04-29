@@ -194,7 +194,7 @@ export class MediaPage {
   
   
   openModal() {
-    let myModal = this.modalCtrl.create(FeedbackPage,{data : this.selectedYoga,selectedDisease: this.selectedDisease});
+    let myModal = this.modalCtrl.create(FeedbackPage,{data : this.selectedYoga,selectedDisease: this.selectedDisease,showPrev:true});
     myModal.present();
   }
   

@@ -26,7 +26,18 @@ export class QuickFixPage {
     this.selectedDisease = navParams.get('item');
     
     this.numberOfLikes = "10";
+    
+    
     this.header = type;
+    
+    if(this.header.indexOf("-")>0){
+        this.header = this.header.split("-")[0];
+    
+    }
+    
+    
+    
+    
     //console.log(type);
     
     //alert(window.localStorage.getItem("YOGAS"));
