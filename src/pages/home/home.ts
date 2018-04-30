@@ -13,6 +13,10 @@ import {UserLoginService} from "../../providers/userLogin.service";
 import { ModalController } from 'ionic-angular';
 import { FeedbackPage } from '../feedback/feedback';
 
+import { Http } from '@angular/http';
+
+import { LoadingController } from 'ionic-angular';
+
 
 @Component({
   selector: 'page-home',
@@ -24,7 +28,7 @@ export class HomePage implements LoggedInCallback  {
   loggedinUser:string;
   
   // check if user logged in. If logged in then set valid login label
-  constructor(public navCtrl: NavController, public navParams:NavParams,public userService: UserLoginService,public streamingMedia: StreamingMedia,public modalCtrl: ModalController ) {
+  constructor(public navCtrl: NavController, public navParams:NavParams,public userService: UserLoginService,public streamingMedia: StreamingMedia,public modalCtrl: ModalController,public http:Http,public loadingCtrl:LoadingController ) {
   
      this.userService.isAuthenticated(this);
      
@@ -112,6 +116,22 @@ export class HomePage implements LoggedInCallback  {
     goToFeedback(){
         let myModal = this.modalCtrl.create(FeedbackPage,{data : "genericFeedback",selectedDisease: "genericFeedback"});
         myModal.present();
+    
+    }
+    
+    refresh(){
+      // alert("reload");
+      let loading = this.loadingCtrl.create({
+        content: 'Reloading...'
+      });
+      loading.present();
+    this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/getvalues?type=disease').subscribe(resp => {
+        window.localStorage.setItem("DISEASES",resp['_body']);
+        });
+        this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/GetYogas').subscribe(resp => {                                       window.localStorage.setItem("YOGAS",resp['_body']);
+        });
+        loading.dismiss();
+    
     
     }
 

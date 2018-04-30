@@ -94,7 +94,7 @@ constructor(public platform: Platform, public statusBar: StatusBar, public splas
 }
             // cache the list of diseases
 reload(){
-            //alert("reload");
+          //  alert("reload");
     this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/getvalues?type=disease').subscribe(resp => {
         window.localStorage.setItem("DISEASES",resp['_body']);
         });
