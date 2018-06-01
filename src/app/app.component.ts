@@ -18,6 +18,10 @@ import { ContactPage } from '../pages/contact/contact';
 
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
+import { LoadingController } from 'ionic-angular';
+
+
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -30,7 +34,7 @@ export class MyApp {
 
 constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
   public http: Http,public events: Events,
-                public awsUtil: AwsUtil ,private push: Push) {
+                public awsUtil: AwsUtil ,private push: Push,public loadingCtrl:LoadingController) {
     this.initializeApp();
     this.awsUtil.initAwsService();
     
@@ -69,24 +73,28 @@ constructor(public platform: Platform, public statusBar: StatusBar, public splas
   
   initializeCache(){
    //alert("init");
-          
+  let loader = this.loadingCtrl.create({
+    content: "Initializing Application..."
+  });
+  loader.present();
             this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/getvalues?type=disease').subscribe(resp => {
                                                                                                                  
     //alert(JSON.stringify(resp['_body'])); 
     setTimeout(() => {
         window.localStorage.setItem("DISEASES",resp['_body']);
+        loader.dismiss();
   }, 1000);
 
-    
-    
-    
-                                                                                                                 });
-            this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/GetYogas').subscribe( resp => {
+});
+            
+  loader.present();          
+this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/GetYogas').subscribe( resp => {
                                                                                                    //alert(resp);
                                                                                                    //alert(resp['_body']);
                                                                                                    
   setTimeout(() => {
         window.localStorage.setItem("YOGAS",resp['_body']);
+        loader.dismiss();
   }, 1000);                                                                                                 
 
                                                                                                    });
@@ -95,10 +103,18 @@ constructor(public platform: Platform, public statusBar: StatusBar, public splas
             // cache the list of diseases
 reload(){
           //  alert("reload");
+  let loader = this.loadingCtrl.create({
+    content: "Initializing Application..."
+  });
+  loader.present();
     this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/getvalues?type=disease').subscribe(resp => {
         window.localStorage.setItem("DISEASES",resp['_body']);
+        loader.dismiss();
         });
+        
+        loader.present();
         this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/GetYogas').subscribe(resp => {                                       window.localStorage.setItem("YOGAS",resp['_body']);
+              loader.dismiss();
         });
     
         
