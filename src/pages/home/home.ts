@@ -13,9 +13,12 @@ import {UserLoginService} from "../../providers/userLogin.service";
 import { ModalController } from 'ionic-angular';
 import { FeedbackPage } from '../feedback/feedback';
 
+
 import { Http } from '@angular/http';
 
 import { LoadingController } from 'ionic-angular';
+
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 
 @Component({
@@ -28,7 +31,7 @@ export class HomePage implements LoggedInCallback  {
   loggedinUser:string;
   
   // check if user logged in. If logged in then set valid login label
-  constructor(public navCtrl: NavController, public navParams:NavParams,public userService: UserLoginService,public streamingMedia: StreamingMedia,public modalCtrl: ModalController,public http:Http,public loadingCtrl:LoadingController ) {
+  constructor(public navCtrl: NavController, public navParams:NavParams,public userService: UserLoginService,public streamingMedia: StreamingMedia,public modalCtrl: ModalController,public http:Http,public loadingCtrl:LoadingController,private iab: InAppBrowser ) {
   
      this.userService.isAuthenticated(this);
      
@@ -132,6 +135,13 @@ export class HomePage implements LoggedInCallback  {
         });
         loading.dismiss();
     
+    
+    }
+    
+    openVideo(){
+    
+    
+         this.iab.create('https://appr.tc/r/sanmay');
     
     }
 

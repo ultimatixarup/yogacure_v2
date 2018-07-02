@@ -37,6 +37,8 @@ import { UserParametersService} from '../providers/userParameters.service';
 import { UserRegistrationService} from '../providers/userRegistration.service';
 import { LogoutComponent} from '../pages/auth/logout.component';
 
+import { VideoconfPage } from '../pages/videoconf/videoconf';
+
 import { PaymentPage } from '../pages/payment/payment';
 
 import { PayPal } from '@ionic-native/paypal';
@@ -54,6 +56,7 @@ import { Push } from '@ionic-native/push';
     HomePage,
     QuickFixPage,
     YogaPage,
+    VideoconfPage,
     MediaPage,
     FeedbackPage,
     PolicyPage,
@@ -85,6 +88,7 @@ import { Push } from '@ionic-native/push';
     ListPage, 
     QuickFixPage,
     YogaPage,
+    VideoconfPage,
     MediaPage,
     FeedbackPage,
     PolicyPage,

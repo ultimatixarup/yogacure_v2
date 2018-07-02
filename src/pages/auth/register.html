@@ -21,7 +21,10 @@
             <ion-label floating>Password</ion-label>
             <ion-input [(ngModel)]="registrationUser.password" type="password"></ion-input>
         </ion-item>
-
+        <ion-item>
+            <ion-label>Password must be 8 characters long<br> and must contains a Uppercase<br> a number and a special character</ion-label>
+           
+        </ion-item>
         <ion-item>
             <button ion-button block outline large (click)="onRegister()">Sign up</button>
         </ion-item>

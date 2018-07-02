@@ -100,8 +100,13 @@ export class YogaPage implements LoggedInCallback {
    
 
   itemTapped(event, item) {
+  
+   this.navCtrl.push(QuickFixPage, {
+              item: item
+
+            });
     
-     if(this.allowed.indexOf(item.name) > -1){
+     /*if(this.allowed.indexOf(item.name) > -1){
         this.navCtrl.push(QuickFixPage, {
           item: item
 
@@ -119,7 +124,7 @@ export class YogaPage implements LoggedInCallback {
             buttons: ['Dismiss']
           });
           alert.present();
-      }
+      }*/
 
   }
   
