@@ -13,6 +13,8 @@ import {UserLoginService} from "../../providers/userLogin.service";
 import { ModalController } from 'ionic-angular';
 import { FeedbackPage } from '../feedback/feedback';
 
+import { MediaPage } from '../media/media';
+
 
 import { Http } from '@angular/http';
 
@@ -100,20 +102,16 @@ export class HomePage implements LoggedInCallback  {
     
     playWhoAmI(){
     
-          var options = {
-            successCallback: function() {
-            console.log("Video was closed without error.");
-            //window.plugins.streamingMedia.suspend();
-            },
-            errorCallback: function(errMsg) {
-            console.log("Error! " + errMsg);
-            alert(errMsg);
-            },
-            //orientation: 'landscape'
-            };
+             var element= { name: "Mission and Vision",label:"Who we are", description: "Mission vision and values", data: "mandukya.3gp", image: 'media/mandukya.jpg', type: ' ',easyvid:"",icon:'mandukya.jpg'};
             
-            var path =  "http://d1dcu4sbskithe.cloudfront.net/mandukya.3gp";
-            this.streamingMedia.playVideo(path,options);
+            this.navCtrl.push(MediaPage, {
+              yogadata: element,
+              selectedDisease: this.selectedDisease
+            });
+          
+            
+           
+          
  
     }
     goToFeedback(){

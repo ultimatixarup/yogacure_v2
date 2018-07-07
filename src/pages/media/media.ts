@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Platform } from 'ionic-angular';
 import { StreamingMedia } from '@ionic-native/streaming-media';
 import { HomePage } from '../home/home';
 import { FavoritesPage } from '../favorites/favorites';
@@ -24,10 +24,13 @@ export class MediaPage {
   options:any;
   easyVid:any;
   selectedDisease:any;
+  isbrowser:any;
+  path:any;
+  poster:any;
   items1: Array<{name: any,label:any, description: any, data: any, image: any, type: any,easyvid:any,icon:any}>;
   
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public streamingMedia: StreamingMedia, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public streamingMedia: StreamingMedia, public modalCtrl: ModalController, public platform: Platform) {
     // If we navigated to this page, we will have an item available as a nav param
     //alert("starting media");
     this.selectedYoga = navParams.get('yogadata');
@@ -48,6 +51,8 @@ export class MediaPage {
             if(this.url.indexOf(".mp3")>0){
                 prev = "media/default.png";
             }
+            
+            
             
            
             
@@ -81,7 +86,20 @@ export class MediaPage {
                 this.easyVid = false;
             }
             //alert(this.easyVid);
-
+            
+          
+            if(!(platform.is('ios') || platform.is('android')) ){
+            //alert("browser");
+            this.isbrowser = true;
+            this.path =  "http://d1dcu4sbskithe.cloudfront.net/"+encodeURIComponent(this.url.replace('.3gp','.mp4'));
+               
+            } else {
+                this.isbrowser = false;
+            }
+            
+             
+            
+            
    
   }
 
