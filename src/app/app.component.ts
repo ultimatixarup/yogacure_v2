@@ -151,8 +151,8 @@ reload(){
     
     
 saveToken(token){
-   console.log(token);
-    this.http.get('http://www.getwellbyoga.com/yoga/store_token.php?token='+token).subscribe(resp =>     {});
+   //alert(token.registrationId);
+    this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/savetoken?token='+token.registrationId).subscribe(resp =>     {});
   
   }
     

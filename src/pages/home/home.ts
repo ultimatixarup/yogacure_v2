@@ -106,7 +106,7 @@ export class HomePage implements LoggedInCallback  {
             
             this.navCtrl.push(MediaPage, {
               yogadata: element,
-              selectedDisease: this.selectedDisease
+              selectedDisease: ""
             });
           
             
