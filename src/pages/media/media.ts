@@ -6,7 +6,7 @@ import { FavoritesPage } from '../favorites/favorites';
 import { ModalController } from 'ionic-angular';
 import { FeedbackPage } from '../feedback/feedback';
 import { PaymentPage } from '../payment/payment';
-
+import { FirebaseAnalytics } from '@ionic-native/firebase-analytics';
 
 @Component({
   selector: 'page-media',
@@ -30,13 +30,16 @@ export class MediaPage {
   items1: Array<{name: any,label:any, description: any, data: any, image: any, type: any,easyvid:any,icon:any}>;
   
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public streamingMedia: StreamingMedia, public modalCtrl: ModalController, public platform: Platform) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public streamingMedia: StreamingMedia, public modalCtrl: ModalController, public platform: Platform, private firebaseAnalytics: FirebaseAnalytics) {
     // If we navigated to this page, we will have an item available as a nav param
     //alert("starting media");
     this.selectedYoga = navParams.get('yogadata');
     this.selectedDisease = navParams.get('selectedDisease');
     this.header = this.selectedYoga.name;
     //alert(JSON.stringify(this.selectedYoga));
+    
+    this.firebaseAnalytics.logEvent('page_view', {page: "media:"+this.selectedYoga+":"+this.selectedDisease});
+ 
     
             this.url = this.selectedYoga.data;
             

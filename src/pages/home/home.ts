@@ -22,6 +22,8 @@ import { LoadingController } from 'ionic-angular';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
+import { FirebaseAnalytics } from '@ionic-native/firebase-analytics';
+
 
 @Component({
   selector: 'page-home',
@@ -33,11 +35,12 @@ export class HomePage implements LoggedInCallback  {
   loggedinUser:string;
   
   // check if user logged in. If logged in then set valid login label
-  constructor(public navCtrl: NavController, public navParams:NavParams,public userService: UserLoginService,public streamingMedia: StreamingMedia,public modalCtrl: ModalController,public http:Http,public loadingCtrl:LoadingController,private iab: InAppBrowser ) {
+  constructor(public navCtrl: NavController, public navParams:NavParams,public userService: UserLoginService,public streamingMedia: StreamingMedia,public modalCtrl: ModalController,public http:Http,public loadingCtrl:LoadingController,private iab: InAppBrowser,private firebaseAnalytics: FirebaseAnalytics ) {
   
      this.userService.isAuthenticated(this);
      
-    
+    this.firebaseAnalytics.logEvent('page_view', {page: "Home"});
+ 
     /*
     this.fcm.onNotification().subscribe(data => {
       if(data.wasTapped){

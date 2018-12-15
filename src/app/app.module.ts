@@ -49,6 +49,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { Push } from '@ionic-native/push';
 
+import { FirebaseAnalytics } from '@ionic-native/firebase-analytics';
+
 
 @NgModule({
   declarations: [
@@ -109,6 +111,7 @@ import { Push } from '@ionic-native/push';
   providers: [
     StatusBar,
     SplashScreen,
+    FirebaseAnalytics,
     StreamingMedia,
     UserLoginService,
         UserParametersService,
