@@ -49,8 +49,11 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { Push } from '@ionic-native/push';
 
-import { FirebaseAnalytics } from '@ionic-native/firebase-analytics';
+import { LoggerComponent } from '../components/logger/logger';
 
+import { UniqueDeviceID } from '@ionic-native/unique-device-id';
+
+import { Device } from '@ionic-native/device';
 
 @NgModule({
   declarations: [
@@ -74,6 +77,8 @@ import { FirebaseAnalytics } from '@ionic-native/firebase-analytics';
         ControlPanelComponent,
         PaymentPage,
         ContactPage,
+        LoggerComponent,
+        
     ListPage
   ],
   imports: [
@@ -106,12 +111,14 @@ import { FirebaseAnalytics } from '@ionic-native/firebase-analytics';
         ControlPanelComponent,
         PaymentPage,
         ContactPage,
+        LoggerComponent,
+        
     ListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    FirebaseAnalytics,
+    
     StreamingMedia,
     UserLoginService,
         UserParametersService,
@@ -122,6 +129,9 @@ import { FirebaseAnalytics } from '@ionic-native/firebase-analytics';
         PayPal,
         InAppBrowser,
         Push,
+        LoggerComponent,
+        UniqueDeviceID,
+        Device,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

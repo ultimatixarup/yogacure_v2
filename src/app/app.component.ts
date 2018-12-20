@@ -22,6 +22,8 @@ import { LoadingController } from 'ionic-angular';
 
 
 
+
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -38,7 +40,7 @@ constructor(public platform: Platform, public statusBar: StatusBar, public splas
     this.initializeApp();
     this.awsUtil.initAwsService();
     
-    
+   
 
     // used for an example of ngFor and navigation
     this.pages = [
@@ -58,6 +60,7 @@ constructor(public platform: Platform, public statusBar: StatusBar, public splas
       this.initializeCache();
       this.initializePushApp();
       
+
     });
     
   }

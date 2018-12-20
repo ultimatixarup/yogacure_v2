@@ -11,6 +11,8 @@ import {UserLoginService} from "../../providers/userLogin.service";
 import { AlertController } from 'ionic-angular';
 import { PaymentPage } from '../payment/payment';
 
+import { LoggerComponent } from '../../components/logger/logger';
+
 
 @Component({
   selector: 'page-yoga',
@@ -24,7 +26,7 @@ export class YogaPage implements LoggedInCallback {
   allowed:Array<{}>;
   loggedIn:any;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams,public userService: UserLoginService,public alertCtrl:AlertController) {
+  constructor(private logger: LoggerComponent,public navCtrl: NavController, public navParams: NavParams,public userService: UserLoginService,public alertCtrl:AlertController) {
   
             this.initializeItems();
            
@@ -101,6 +103,8 @@ export class YogaPage implements LoggedInCallback {
 
   itemTapped(event, item) {
   
+  this.logger.logEvent('Clicked on disease:'+item.name);
+  
    this.navCtrl.push(QuickFixPage, {
               item: item
 
@@ -130,10 +134,12 @@ export class YogaPage implements LoggedInCallback {
   
   goToHome(param):void{
     //alert("in here");
+    this.logger.logEvent('Going back to home');
      this.navCtrl.setRoot(HomePage);
   }
   
   goToFavs(){
+  this.logger.logEvent('Going to fav');
     this.navCtrl.push(FavoritesPage,{});
   }  
   isLoggedInCallback(message: string, isLoggedIn: boolean) {

@@ -6,6 +6,7 @@ import { FavoritesPage } from '../favorites/favorites';
 import { ModalController } from 'ionic-angular';
 import { FeedbackPage } from '../feedback/feedback';
 import { PaymentPage } from '../payment/payment';
+import { LoggerComponent } from '../../components/logger/logger';
 
 @Component({
   selector: 'page-quickfix',
@@ -20,7 +21,7 @@ export class QuickFixPage {
   numberOfLikes:any;
   numberOfComments:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl: ModalController) {
+  constructor(private logger: LoggerComponent,public navCtrl: NavController, public navParams: NavParams,public modalCtrl: ModalController) {
     // If we navigated to this page, we will have an item available as a nav param
     var type = navParams.get('item').name;
     this.selectedDisease = navParams.get('item');
@@ -61,6 +62,7 @@ export class QuickFixPage {
    }
 
   itemTapped(event, item) {
+   this.logger.logEvent('Going to media with:'+item.name);
     // That's right, we're pushing to ourselves!
     //alert("calling media");
     this.navCtrl.push(MediaPage, {
@@ -70,10 +72,12 @@ export class QuickFixPage {
   }
   
   goToHome(){
+   this.logger.logEvent('Going back to home page:');
     this.navCtrl.setRoot(HomePage,{});
   }
   
   goToFavs(){
+   this.logger.logEvent('Going to favs');
     this.navCtrl.push(FavoritesPage,{});
   }
   

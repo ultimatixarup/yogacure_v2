@@ -22,7 +22,10 @@ import { LoadingController } from 'ionic-angular';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
-import { FirebaseAnalytics } from '@ionic-native/firebase-analytics';
+
+
+
+import { LoggerComponent } from '../../components/logger/logger';
 
 
 @Component({
@@ -35,31 +38,19 @@ export class HomePage implements LoggedInCallback  {
   loggedinUser:string;
   
   // check if user logged in. If logged in then set valid login label
-  constructor(public navCtrl: NavController, public navParams:NavParams,public userService: UserLoginService,public streamingMedia: StreamingMedia,public modalCtrl: ModalController,public http:Http,public loadingCtrl:LoadingController,private iab: InAppBrowser,private firebaseAnalytics: FirebaseAnalytics ) {
+  constructor(private logger: LoggerComponent, public navCtrl: NavController, public navParams:NavParams,public userService: UserLoginService,public streamingMedia: StreamingMedia,public modalCtrl: ModalController,public http:Http,public loadingCtrl:LoadingController,private iab: InAppBrowser) {
   
+   
+   this.logger.logEvent('Home');
      this.userService.isAuthenticated(this);
-     
-    this.firebaseAnalytics.logEvent('page_view', {page: "Home"});
- 
-    /*
-    this.fcm.onNotification().subscribe(data => {
-      if(data.wasTapped){
-        console.log("Received in background");
-      } else {
-        console.log("Received in foreground");
-      };
-    });
-    
-    this.fcm.onTokenRefresh().subscribe(token => {
-      alert(token);
-    });*/   
-    
+
     
   }
   
   
   goToAilements(param):void{
     //alert("in here");
+    this.logger.logEvent('Going to page:'+param);
      this.navCtrl.push(YogaPage, {
       type: param
     });
@@ -67,20 +58,23 @@ export class HomePage implements LoggedInCallback  {
   
   goToHome(param):void{
     //alert("in here");
+    this.logger.logEvent('Home');
      this.navCtrl.setRoot(HomePage);
   }
   
   goToFavs(){
+   this.logger.logEvent('Going to Fav page');
     this.navCtrl.push(FavoritesPage,{});
   } 
   
   goToContact(){
+   this.logger.logEvent('Going to Contact page');
     this.navCtrl.push(ContactPage,{});
   }
   
   goToLogin(){
   
-  
+   this.logger.logEvent('Going to Login/Logout page');
     if(this.loginLabel == "Logout"){
       this.userService.logout();
       this.loginLabel ="Login / Register";
@@ -104,7 +98,7 @@ export class HomePage implements LoggedInCallback  {
     
     
     playWhoAmI(){
-    
+     this.logger.logEvent('Going to Who am I page');
              var element= { name: "Mission and Vision",label:"Who we are", description: "Mission vision and values", data: "mandukya.3gp", image: 'media/mandukya.jpg', type: ' ',easyvid:"",icon:'mandukya.jpg'};
             
             this.navCtrl.push(MediaPage, {
@@ -118,6 +112,7 @@ export class HomePage implements LoggedInCallback  {
  
     }
     goToFeedback(){
+    this.logger.logEvent('Going to Feedback page');
         let myModal = this.modalCtrl.create(FeedbackPage,{data : "genericFeedback",selectedDisease: "genericFeedback"});
         myModal.present();
     
@@ -125,6 +120,7 @@ export class HomePage implements LoggedInCallback  {
     
     refresh(){
       // alert("reload");
+       this.logger.logEvent('Trying to refresh page');
       let loading = this.loadingCtrl.create({
         content: 'Reloading...'
       });
