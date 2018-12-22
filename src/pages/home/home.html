@@ -38,18 +38,18 @@
                    <ion-thumbnail item-start>
                       <a (click)="goToAilements('15')"> <img class="image_icon" src="http://d1dcu4sbskithe.cloudfront.net/media/15min.png"></a>
                           </ion-thumbnail>
-                    <h2>15 Minute series</h2>
-                    <h3>Tap to find relief in 15 min from your ailement</h3>
-                          <button ion-button clear item-end>View</button>
+                    <h2>Taste Wellness</h2>
+                    <h3>Find relief in 15 min from your ailement</h3>
+                          <button ion-button clear item-end (click)="goToAilements('15')">View</button>
                   </ion-item>
                 
                       <ion-item>
                     <ion-thumbnail item-start>
                      <a href="#" (click)="goToAilements('60')"><img style="height:75px;width:75px" src="http://d1dcu4sbskithe.cloudfront.net/media/1hr.png"></a>
                           </ion-thumbnail>
-                    <h2>Test Wellness</h2>
-                    <h3>Tap to practice 60 minute sessions to get well inside out</h3>
-                          <button ion-button clear item-end>View</button>
+                    <h2>Enjoy Wellness</h2>
+                    <h3>Practice 60 minute sessions to get well inside out</h3>
+                          <button ion-button clear item-end (click)="goToAilements('60')">View</button>
                   </ion-item>
                      
                      <ion-item>
@@ -57,8 +57,8 @@
                      <a href="#" (click)="goToAilements('meditation')"> <img class="image_icon" src="http://d1dcu4sbskithe.cloudfront.net/media/meditation.png"></a>
                          </ion-thumbnail>
                     <h2>Feel Wellness</h2>
-                    <h3>Tap to meditate with Dr Yogi</h3>
-                         <button ion-button clear item-end>View</button>
+                    <h3>Meditate with Dr Yogi</h3>
+                         <button ion-button clear item-end (click)="goToAilements('meditation')">View</button>
                   </ion-item>
                      
                       <ion-item>
@@ -66,26 +66,26 @@
                      <a href="#" (click)="goToAilements('mobile')"> <img class="image_icon" src="http://d1dcu4sbskithe.cloudfront.net/media/mobileyoga.png"></a>
                           </ion-thumbnail>
                     <h2>Mobile Wellness</h2>
-                    <h3>Tap to use Dr Yogi when travelling</h3>
-                          <button ion-button clear item-end>View</button>
+                    <h3>Use Dr Yogi when travelling</h3>
+                          <button ion-button clear item-end (click)="goToAilements('mobile')">View</button>
                   </ion-item>
                      
                         <ion-item>
                     <ion-thumbnail item-start>
                      <a href="#" (click)="goToContact()"> <img class="image_icon" src="http://d1dcu4sbskithe.cloudfront.net/media/contact.png"></a>
                             </ion-thumbnail>
-                    <h2>Contact</h2>
-                    <h3>Tap to send a message to Dr Yogi</h3>
-                            <button ion-button clear item-end>View</button>
+                    <h2>Consult Wellness</h2>
+                    <h3>Send a message to Dr Yogi</h3>
+                            <button ion-button clear item-end (click)="goToContact()">View</button>
                   </ion-item>
                      
                      <ion-item>
                     <ion-thumbnail item-start>
                      <a href="#" (click)="goToFeedback()"> <img class="image_icon" src="http://d1dcu4sbskithe.cloudfront.net/media/feedback_main.png"></a>
                          </ion-thumbnail>
-                    <h2>Consult</h2>
-                    <h3>Tap to consult with Dr Yogi</h3>
-                         <button ion-button clear item-end>View</button>
+                    <h2>Feedback</h2>
+                    <h3>Give your feedback to DrYogi</h3>
+                         <button ion-button clear item-end (click)="goToFeedback()">View</button>
                   </ion-item>
                      
                 </ion-list>
