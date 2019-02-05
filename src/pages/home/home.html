@@ -8,7 +8,7 @@
 </ion-header>
 <ion-content>
 
-            <div style="height:50%;background: url('http://d1dcu4sbskithe.cloudfront.net/img/frontpage1.jpg');background-repeat:round">
+            <div>
             
                 <ion-slides autoplay="500" loop="true" speed="3000" style="vertical-align:top">
                     <ion-slide >
@@ -24,7 +24,17 @@
                       <img style="height:250px;width:100%"  src="http://d1dcu4sbskithe.cloudfront.net/img/slide4.jpg">
                     </ion-slide>
             </ion-slides>
+                
                 </div>
+                <div style="background: url('http://d1dcu4sbskithe.cloudfront.net/img/frontpage_bg.jpg');background-repeat:round;height:50px;width:100%;margin-left: 5px;margin-right: 5px">
+                 <p>
+                     <font color="white"><i><ul><b>Quote of the day~<br/></b>
+                         Yoga is not about touching your toes. It is what you learn on the way down
+                         </ul></i></font><br/>
+                     
+                </p>
+                    </div>
+    
                  <ion-list>
                   <ion-item>
                     <ion-thumbnail item-start>
@@ -90,7 +100,24 @@
                      
                 </ion-list>
                 
-
+    <div>
+            
+                <ion-slides autoplay="500" loop="true" speed="3000" style="vertical-align:top">
+                    <ion-slide >
+                      <img style="height:250px;width:100%" src="http://d1dcu4sbskithe.cloudfront.net/img/slide1.jpg">
+                    </ion-slide>
+                    <ion-slide >
+                      <img style="height:250px;width:100%"  src="http://d1dcu4sbskithe.cloudfront.net/img/slide2.jpg">
+                    </ion-slide>
+                    <ion-slide >
+                      <img style="height:250px;width:100%"  src="http://d1dcu4sbskithe.cloudfront.net/img/slide3.jpg">
+                    </ion-slide>
+                     <ion-slide >
+                      <img style="height:250px;width:100%"  src="http://d1dcu4sbskithe.cloudfront.net/img/slide4.jpg">
+                    </ion-slide>
+            </ion-slides>
+                
+                </div>
  
     <ion-item *ngIf="loggedinUser">
         <ion-label>Logged in user: {{loggedinUser}}</ion-label>
