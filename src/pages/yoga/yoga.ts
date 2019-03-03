@@ -25,6 +25,7 @@ export class YogaPage implements LoggedInCallback {
   header: string;
   allowed:Array<{}>;
   loggedIn:any;
+  selectedType:any;
   
   constructor(private logger: LoggerComponent,public navCtrl: NavController, public navParams: NavParams,public userService: UserLoginService,public alertCtrl:AlertController) {
   
@@ -39,12 +40,15 @@ export class YogaPage implements LoggedInCallback {
             
             this.userService.isAuthenticated(this);
             var type = this.navParams.get('type');
+            this.selectedtype = type;
             if(type == '15')
                 this.header = "15 Min Practice";
             else if(type == '60')
                 this.header = "One Hour Practice";
             else if(type == 'mobile')
                 this.header = "Travel Yoga Practice";
+            else if(type == 'therapist')
+                this.header = "Our Therapists";
             else
                 this.header = "Meditations";
             
@@ -103,6 +107,15 @@ export class YogaPage implements LoggedInCallback {
 
   itemTapped(event, item) {
   
+  if(this.selectedType == 'therapist'){
+      //alert("in here");
+      var param = item.name + "_offering";
+    this.logger.logEvent('Going to page:'+param);
+     this.navCtrl.push(YogaPage, {
+      type: param
+    });
+  } else {
+  
   this.logger.logEvent('Clicked on disease:'+item.name);
   
    this.navCtrl.push(QuickFixPage, {
@@ -129,6 +142,7 @@ export class YogaPage implements LoggedInCallback {
           });
           alert.present();
       }*/
+    }
 
   }
   
