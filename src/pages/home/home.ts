@@ -56,6 +56,11 @@ export class HomePage implements LoggedInCallback  {
     });
   }
   
+  goToTherapists(){
+    this.logger.logEvent('Going to Therapist page');
+    this.navCtrl.push(Therapist,{});
+  }
+  
   goToHome(param):void{
     //alert("in here");
     this.logger.logEvent('Home');

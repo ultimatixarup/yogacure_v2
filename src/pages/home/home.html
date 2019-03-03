@@ -98,26 +98,46 @@
                          <button ion-button clear item-end (click)="goToFeedback()">View</button>
                   </ion-item>
                      
+                     
+                      <ion-item>
+                   <ion-card>
+                       <a href="#" (click)="goToTherapists()">
+                           <img src="http://d1dcu4sbskithe.cloudfront.net/media/therapist.jpg"/></a>
+                          <ion-card-content>
+                            <ion-card-title>
+                              Our Therapist Network
+                              </ion-card-title>
+                            <p>
+                             <a href="#" (click)="goToTherapists()"> We have some of the best talents in our therapist network.<br/>
+                                 Please tap to learn more.</a>
+                            </p>
+                          </ion-card-content>
+                        </ion-card>
+                     </ion-item>
+
+                     
                 </ion-list>
                 
     <div>
             
                 <ion-slides autoplay="500" loop="true" speed="3000" style="vertical-align:top">
                     <ion-slide >
-                      <img style="height:250px;width:100%" src="http://d1dcu4sbskithe.cloudfront.net/img/slide1.jpg">
+                      <img style="height:250px;width:100%" src="http://d1dcu4sbskithe.cloudfront.net/img/slide_low_1.jpg">
                     </ion-slide>
                     <ion-slide >
-                      <img style="height:250px;width:100%"  src="http://d1dcu4sbskithe.cloudfront.net/img/slide2.jpg">
+                      <img style="height:250px;width:100%"  src="http://d1dcu4sbskithe.cloudfront.net/img/slide_low_2.jpg">
                     </ion-slide>
                     <ion-slide >
-                      <img style="height:250px;width:100%"  src="http://d1dcu4sbskithe.cloudfront.net/img/slide3.jpg">
+                      <img style="height:250px;width:100%"  src="http://d1dcu4sbskithe.cloudfront.net/img/slide_low_3.jpg">
                     </ion-slide>
                      <ion-slide >
-                      <img style="height:250px;width:100%"  src="http://d1dcu4sbskithe.cloudfront.net/img/slide4.jpg">
+                      <img style="height:250px;width:100%"  src="http://d1dcu4sbskithe.cloudfront.net/img/slide_low_4.jpg">
                     </ion-slide>
             </ion-slides>
                 
                 </div>
+    
+               
  
     <ion-item *ngIf="loggedinUser">
         <ion-label>Logged in user: {{loggedinUser}}</ion-label>
