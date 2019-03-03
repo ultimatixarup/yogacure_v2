@@ -106,14 +106,27 @@ export class YogaPage implements LoggedInCallback {
    
 
   itemTapped(event, item) {
+
   
-  if(this.selectedType == 'therapist'){
-      //alert("in here");
-      var param = item.name + "_offering";
-    this.logger.logEvent('Going to page:'+param);
-     this.navCtrl.push(YogaPage, {
-      type: param
-    });
+  if(this.selectedtype == 'therapist'){
+     if(item.name == 'dryogi-therapist'){
+             this.logger.logEvent('Going to page:'+param);
+             this.navCtrl.push(YogaPage, {
+              type: '15'
+            });
+     } else {
+     
+            //alert("in here");
+            var param = item.name + "_offering";
+            this.logger.logEvent('Going to page:'+param);
+             this.navCtrl.push(YogaPage, {
+              type: param
+            });
+     
+     
+     }
+    
+      
   } else {
   
   this.logger.logEvent('Clicked on disease:'+item.name);
