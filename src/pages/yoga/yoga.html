@@ -18,13 +18,13 @@
        <ion-card ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
     <img src="http://d1dcu4sbskithe.cloudfront.net/{{ item.image }}" onerror="this.src='http://d1dcu4sbskithe.cloudfront.net/media/default.png';" />
            
-           <ion-card-content>
-    <ion-card-title>
-       {{ item.label }}
-      </ion-card-title>
-    <p>
-      {{ item.description }}
-    </p>
+           
+               <div style="font-size: 20px;font-weight: bold;">{{ item.label }}</div>
+           <ion-card-content *ngIf="item.description">
+    <div style="white-space: pre-wrap;text-align: left;font-size: large">
+   {{item.description}}
+               </div>
+    
   </ion-card-content>
           
   </ion-card>

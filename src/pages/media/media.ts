@@ -7,6 +7,7 @@ import { ModalController } from 'ionic-angular';
 import { FeedbackPage } from '../feedback/feedback';
 import { PaymentPage } from '../payment/payment';
 import { LoggerComponent } from '../../components/logger/logger';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @Component({
   selector: 'page-media',
@@ -30,7 +31,7 @@ export class MediaPage {
   items1: Array<{name: any,label:any, description: any, data: any, image: any, type: any,easyvid:any,icon:any}>;
   
 
-  constructor(private logger: LoggerComponent,public navCtrl: NavController, public navParams: NavParams, public streamingMedia: StreamingMedia, public modalCtrl: ModalController, public platform: Platform) {
+  constructor(private logger: LoggerComponent,public navCtrl: NavController, public navParams: NavParams, public streamingMedia: StreamingMedia, public modalCtrl: ModalController, public platform: Platform,private iab: InAppBrowser) {
     // If we navigated to this page, we will have an item available as a nav param
     //alert("starting media");
     this.selectedYoga = navParams.get('yogadata');
@@ -221,6 +222,11 @@ export class MediaPage {
   
    goToProducts(){
         this.navCtrl.push(PaymentPage);
+    }
+    
+     openPaypal(){
+        var pageContent = 'http://d1dcu4sbskithe.cloudfront.net/pay.html';
+        this.iab.create(pageContent);
     }
             
 }

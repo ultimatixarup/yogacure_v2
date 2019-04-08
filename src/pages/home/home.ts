@@ -36,10 +36,16 @@ export class HomePage implements LoggedInCallback  {
   loginLabel:string;
   loggedIn:any;
   loggedinUser:string;
+  pushmessage:string;
   
   // check if user logged in. If logged in then set valid login label
   constructor(private logger: LoggerComponent, public navCtrl: NavController, public navParams:NavParams,public userService: UserLoginService,public streamingMedia: StreamingMedia,public modalCtrl: ModalController,public http:Http,public loadingCtrl:LoadingController,private iab: InAppBrowser) {
   
+  this.http.get('http://getwellbyoga.org/push_notification/pushmessage.php').subscribe(resp => {
+        
+       this.pushmessage = resp['_body'];
+        
+    });
    
    this.logger.logEvent('Home');
      this.userService.isAuthenticated(this);
@@ -141,6 +147,11 @@ export class HomePage implements LoggedInCallback  {
     
          this.iab.create('https://appr.tc/r/sanmay');
     
+    }
+    
+    openPaypal(){
+        var pageContent = 'http://d1dcu4sbskithe.cloudfront.net/pay.html';
+        this.iab.create(pageContent);
     }
 
 }

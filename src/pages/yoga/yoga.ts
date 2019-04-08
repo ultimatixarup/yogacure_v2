@@ -40,7 +40,7 @@ export class YogaPage implements LoggedInCallback {
             
             this.userService.isAuthenticated(this);
             var type = this.navParams.get('type');
-            this.selectedtype = type;
+            this.selectedType = type;
             if(type == '15')
                 this.header = "15 Min Practice";
             else if(type == '60')
@@ -65,12 +65,12 @@ export class YogaPage implements LoggedInCallback {
             
             if(type=="15"){ // only 15 min does not have -type naming convention
                 if(resp[i][5].indexOf("-")< 0){
-                    element= { label: resp[i][0],name: resp[i][5],description: resp[i][1], data: resp[i][2], image: resp[i][3], type: resp[i][4]};
+                    element= { label: resp[i][0],name: resp[i][5],description: resp[i][1].trim(), data: resp[i][2], image: resp[i][3], type: resp[i][4]};
                     this.items.push(element);
                 }
             } else if(resp[i][5].indexOf("-"+type)>0){
             //console.log("creating element");
-            var element= { label: resp[i][0],name: resp[i][5],description: resp[i][1], data: resp[i][2], image: resp[i][3].replace("-"+type,""), type: resp[i][4]};
+            var element= { label: resp[i][0],name: resp[i][5],description: resp[i][1].trim(), data: resp[i][2], image: resp[i][3].replace("-"+type,""), type: resp[i][4]};
             this.items.push(element);
             }
             
@@ -108,7 +108,7 @@ export class YogaPage implements LoggedInCallback {
   itemTapped(event, item) {
 
   
-  if(this.selectedtype == 'therapist'){
+  if(this.selectedType == 'therapist'){
      if(item.name == 'dryogi-therapist'){
              this.logger.logEvent('Going to page:'+param);
              this.navCtrl.push(YogaPage, {
