@@ -37,6 +37,7 @@ export class HomePage implements LoggedInCallback  {
   loggedIn:any;
   loggedinUser:string;
   pushmessage:string;
+  items: Array<{name: any,label:any, description: any, data: any, image: any, type: any,easyvid:any,icon:any}>;
   
   // check if user logged in. If logged in then set valid login label
   constructor(private logger: LoggerComponent, public navCtrl: NavController, public navParams:NavParams,public userService: UserLoginService,public streamingMedia: StreamingMedia,public modalCtrl: ModalController,public http:Http,public loadingCtrl:LoadingController,private iab: InAppBrowser) {
@@ -46,6 +47,22 @@ export class HomePage implements LoggedInCallback  {
        this.pushmessage = resp['_body'];
         
     });
+    
+    /* var resp = JSON.parse(window.localStorage.getItem("MENU"));
+            console.log(JSON.stringify(resp));
+            this.items = [];
+            
+            //console.log('Success', resp);
+            
+            //alert(resp[3][0]);
+            
+            for(var i = 0; i < resp.length; i++) {
+            
+            var element= { name: resp[i][0],label:resp[i][5], description: resp[i][1], data: resp[i][2], image: 'media/'+resp[i]  [2].split('.')[0]+'.jpg', type: resp[i][4],easyvid:resp[i][6],icon:resp[i][2].split('.')[0]+'.jpg'};
+            
+            
+            this.items.push(element);
+            }*/
    
    this.logger.logEvent('Home');
      this.userService.isAuthenticated(this);

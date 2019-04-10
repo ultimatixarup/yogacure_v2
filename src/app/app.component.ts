@@ -74,6 +74,7 @@ constructor(public platform: Platform, public statusBar: StatusBar, public splas
     this.nav.setRoot(page.component);
   }
   
+  
   initializeCache(){
    //alert("init");
   let loader = this.loadingCtrl.create({
@@ -89,6 +90,18 @@ constructor(public platform: Platform, public statusBar: StatusBar, public splas
   }, 1000);
 
 });
+
+
+/* loader.present();
+            this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/getvalues?type=menu').subscribe(resp => {
+                                                                                                                 
+    //alert(JSON.stringify(resp['_body'])); 
+    setTimeout(() => {
+        window.localStorage.setItem("MENU",resp['_body']);
+        loader.dismiss();
+  }, 1000);
+
+});*/
             
   loader.present();          
 this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/GetYogas').subscribe( resp => {
@@ -112,6 +125,12 @@ reload(){
   loader.present();
     this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/getvalues?type=disease').subscribe(resp => {
         window.localStorage.setItem("DISEASES",resp['_body']);
+        loader.dismiss();
+        });
+        
+        loader.present();
+    this.http.get('https://0kvgk0xp4a.execute-api.us-east-1.amazonaws.com/prod/getvalues?type=menu').subscribe(resp => {
+        window.localStorage.setItem("MENU",resp['_body']);
         loader.dismiss();
         });
         
