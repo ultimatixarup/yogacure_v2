@@ -167,7 +167,7 @@ export class HomePage implements LoggedInCallback  {
     }
     
     openPaypal(){
-        var pageContent = 'http://d1dcu4sbskithe.cloudfront.net/pay.html';
+        var pageContent = 'https://d1dcu4sbskithe.cloudfront.net/pay.html';
         this.iab.create(pageContent);
     }
 
